@@ -1,7 +1,8 @@
 <?php
 // Database connection details
+//blabla bla
 $servername = "localhost";
-$username = "tanoo";  // default username for phpMyAdmin
+$username = "oorvashi";  // default username for phpMyAdmin
 $password = "talenthub123";  // default password for phpMyAdmin (usually empty)
 $dbname = "talenthub";
 
