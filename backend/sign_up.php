@@ -9,7 +9,7 @@ $pass = $_POST['password'];
 $hashed_pass = password_hash($pass, PASSWORD_BCRYPT);
 
 // Insert into database
-$sql = "INSERT INTO test_login (user_id, username, password) VALUES (UUID(), '$user', '$hashed_pass')";
+$sql = "INSERT INTO users (user_id, username, password) VALUES (UUID(), '$user', '$hashed_pass')";
 
 if ($conn->query($sql) === TRUE) {
    header("Location: ../index.php");

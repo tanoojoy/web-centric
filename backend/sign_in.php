@@ -9,7 +9,7 @@ $pass = $_POST['password'];  //bhurtu
 $hashed_pass = password_hash($pass, PASSWORD_BCRYPT);
 
 //get that user's data from DB
-$sql = "SELECT user_id, username, password FROM test_login WHERE username='$user'";
+$sql = "SELECT user_id, username, password FROM users WHERE username='$user'";
 
 $result = $conn->query($sql);
 
