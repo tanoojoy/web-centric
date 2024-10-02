@@ -3,18 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
+    <title>Create A New Account</title>
+    <link rel="stylesheet" href="css/forms.css">
+    <link rel="stylesheet" href="css/homepage.css">
+    <link rel="stylesheet" href="css/footer.css">
 </head>
 <body>
-    <h2>Login Form</h2>
-    <form action="sign_up.php" method="POST">
+    <div class="landing-page">
+        <?php
+            include("components/navbar.php");
+        ?>
+    </div>
+    <h2 style="text-align: center"> Create Account </h2>
+    <form class="login" action="/backend/sign_up.php" method="POST">
         <label for="username">Username:</label>
-        <input type="text" name="username" required><br><br>
-
+        <div class="input">
+            <input type="email" name="username" placeholder="Email" required>
+        </div>
         <label for="password">Password:</label>
-        <input type="password" name="password" required><br><br>
-
-        <input type="submit" value="Login">
+        <div class="input">
+            <input type="password" name="password" placeholder="Password" required>
+        </div>
+        <button type="submit" class="submit">Create Account</button>
     </form>
 </body>
+<?php
+    // include("components/footer.php");
+?>
 </html>
