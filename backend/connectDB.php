@@ -2,7 +2,7 @@
     // Database connection details
     $servername = "localhost";
     $username = "tanoo";  // default username for phpMyAdmin
-    $password = "talenthub123";  // default password for phpMyAdmin (usually empty)
+    $password = "talenthub";  // default password for phpMyAdmin (usually empty)
     $dbname = "talenthub.sql";
 
     // Create a connection
