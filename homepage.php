@@ -11,6 +11,7 @@
     }
 
 ?>
+
  
 <!DOCTYPE html>
 <html lang="en">
@@ -18,10 +19,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JobSeeker - Home</title>
-    <link rel="stylesheet" href="css\homestyle.css">
+    <link rel="stylesheet" href="css/homestyle.css">
 
 </head>
 <body>
+
 
     <!-- Navigation Bar -->
     <header>
@@ -45,11 +47,11 @@
                 </ul>
             </div>
 
-        <div class="logout">
-            <form action="backend/logout.php" method="POST">
-                <button type="submit" class="logout-btn">Logout</button>
-            </form>
-        </div>
+            <div class="logout">
+                <form action="backend/logout.php" method="POST">
+                    <button type="submit" class="logout-btn">Logout</button>
+                </form>
+            </div>
             
            
         </nav>

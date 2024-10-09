@@ -3,7 +3,7 @@
     $servername = "localhost";
     $username = "tanoo";  // default username for phpMyAdmin
     $password = "talenthub";  // default password for phpMyAdmin (usually empty)
-    $dbname = "talenthub.sql";
+    $dbname = "talenthub";
 
     // Create a connection
     $conn = new mysqli($servername, $username, $password, $dbname);
