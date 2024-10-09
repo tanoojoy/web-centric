@@ -8,8 +8,17 @@
     }
     else{
         $username = $_SESSION['username'];
-    }
+        
+        //fetch page configurations
+        include("backend/config.php");
 
+        //fetch job postings
+        $sql = "SELECT jobposting.title, jobposting.description, jobposting.location, company.name AS company_name
+                FROM jobposting
+                JOIN company ON jobposting.company_id = company.company_id;";
+        $jobpostings = $conn->query($sql);
+        $conn->close();
+    }
 ?>
 
  
@@ -18,7 +27,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JobSeeker - Home</title>
+    <title><?php echo $title; ?></title>
     <link rel="stylesheet" href="css/homestyle.css">
 
 </head>
@@ -64,7 +73,7 @@
         <aside class="sidebar">
             <div class="profile-summary">
                 <img src="profile-pic.jpg" alt="Profile Picture" class="profile-pic">
-                <h3>John Doe</h3>
+                <h3><?php echo $username; ?></h3>
                 <p>Software Developer at ABC Corp</p>
             </div>
             <ul class="sidebar-links">
@@ -79,42 +88,34 @@
         <!-- Main Feed -->
         <section class="main-feed">
             <h2>Job Recommendations</h2>
-            <div class="job-post">
-                <h3>Frontend Developer</h3>
-                <p>Company: DayForce</p>
-                <p>Location: Remote</p>
-                <button class="apply-btn">Apply</button>
-            </div>
-            <div class="job-post">
-                <h3>Backend Developer</h3>
-                <p>Company: MCB</p>
-                <p>Location: Quatre-Born, St-Jean</p>
-                <button class="apply-btn">Apply</button>
-            </div>
-            <!-- Additional job posts can go here -->
-            <div class="job-post">
-                <h3>Backend Developer</h3>
-                <p>Company: MCB</p>
-                <p>Location: Quatre-Born, St-Jean</p>
-                <button class="apply-btn">Apply</button>
-            </div>
+            <?php
+                
+                if ($jobpostings->num_rows > 0) { // Check if any records were found
+                    while($row = $jobpostings->fetch_assoc()) {  //store the SQL row in a variable $row
+                        $job_title = $row['title'];
+                        $job_description = $row['description'];
+                        $job_location = $row['location'];
+                        $company_name = $row['company_name'];
+                        
 
-            <div class="job-post">
-                <h3>Backend Developer</h3>
-                <p>Company: MCB</p>
-                <p>Location: Quatre-Born, St-Jean</p>
-                <button class="apply-btn">Apply</button>
-            </div>
+                        //echo "<p>" . $job_title . "</p>";
 
-            <div class="job-post">
-                <h3>Backend Developer</h3>
-                <p>Company: MCB</p>
-                <p>Location: Quatre-Born, St-Jean</p>
-                <button class="apply-btn">Apply</button>
-            </div>
-
+                        echo "<div class=\"job-post\">
+                            <h3>" . $job_title ."</h3>
+                            <p>Company: " . $company_name . "</p>
+                            <p>Description: ". $job_description ."
+                            <p>Location: " . $job_location . "</p>
+                            <button class=\"apply-btn\">Apply</button>
+                            </div>";
+                    }
+                } 
+                else {
+                    echo "There was a problem querying the config table";
+                }
+            ?>
         </section>
     </div>
 
 </body>
 </html>
+
