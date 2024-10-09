@@ -138,7 +138,7 @@ nav {
     width: 230px; /* Keep the width of the sidebar */
     height: calc(100vh - 80px); /* Full height minus the header height */
     padding: 20px;
-    background-color: #575591;
+    background-color: #7776ac;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     overflow-y: auto; /* Enable scrolling within the sidebar if content overflows */
 }
@@ -154,12 +154,12 @@ nav {
 .profile-summary h3 {
     font-size: 1.2rem;
     margin-bottom: 5px;
-    color: black; 
+    color:  #33315d; 
 }
 
 .profile-summary p {
     font-size: 0.9rem;
-    color:black; 
+    color: #312e5e; 
 }
 
 
@@ -172,16 +172,45 @@ nav {
     margin-bottom: 15px;
 }
 
-.sidebar-links a {
-    text-decoration: none;
-    color: black;
-    font-size: 1rem;
+/* Base link styles */
+a {
+    text-decoration: none; /* Remove underline from links */
+    color: #6c63ff; /* Default link color */
+    font-size: 1rem; /* Font size for links */
+    transition: color 0.3s ease, transform 0.2s ease; /* Smooth transitions for color and transformation */
 }
 
-.sidebar-links a:hover {
-    color: #6c63ff; 
-    text-decoration: underline;
+/* Link hover effect */
+a:hover {
+    color: #5752d1; /* Darker shade on hover */
+    transform: scale(1.05); /* Slightly scale up on hover */
 }
+
+/* Link active state */
+a:active {
+    color: #4b4f9b; /* Even darker shade when the link is active */
+}
+
+/* Visited link style */
+a:visited {
+    color: #8a8a8a; /* Color for visited links */
+}
+
+/* Link styles for sidebar or other specific areas */
+.sidebar-links a {
+    display: block; /* Make links block elements for easier clicking */
+    padding: 10px; /* Add padding for better spacing */
+    border-radius: 5px; /* Rounded corners for links */
+    color: #282c79;
+    font-weight: bold;
+
+}
+
+/* Hover effect specifically for sidebar links */
+.sidebar-links a:hover {
+    background-color: rgba(108, 99, 255, 0.1); /* Light background color on hover */
+}
+
 
 .main-feed {
     flex-grow: 2; /* Allow main feed to take up remaining space */
