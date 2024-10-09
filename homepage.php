@@ -26,20 +26,26 @@
     <!-- Navigation Bar -->
     <header>
         <nav>
-            <!--<div class="logo">TalentHub</div> -->
-            <div><a class="mainlogo">Talent<b> Hub</b></a></div>
+            <div class="logo">Talent Hub</div>
             <div class="search-bar">
                 <input type="text" placeholder="Search for jobs, companies...">
                 <button class="search-btn">Search</button>
             </div>
-            <ul class="nav-links">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">My Network</a></li>
-                <li><a href="#">Jobs</a></li>
-                <li><a href="#">Messages</a></li>
-                <li><a href="#">Notifications</a></li>
-                <li><a href="#">Profile</a></li>
-            </ul>
+
+           
+            <div>
+                <ul class="links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="#">Network</a></li>
+                    <li><a href="#">Work</a></li>
+                    <li><a href="#">Jobs</a></li>
+                    <li><a href="#">Messages</a></li>
+                    <li><a href="#">Notifications</a></li>
+                    <li><a href="#">Profile</a></li>
+                </ul>
+            </div>
+            
+           
         </nav>
     </header>
 
@@ -49,14 +55,14 @@
         <aside class="sidebar">
             <div class="profile-summary">
                 <img src="profile-pic.jpg" alt="Profile Picture" class="profile-pic">
-                <h3>Tanoo Joykurun</h3>
-                <p>Intern</p>
+                <h3>John Doe</h3>
+                <p>Software Developer at ABC Corp</p>
             </div>
             <ul class="sidebar-links">
-                <li><a href="#">Connections</a></li>
-                <li><a href="#">About Me</a></li>
-                <li><a href="#">Hobby</a></li>
-                <li><a href="#">Applied Jobs</a></li>
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="#">My Jobs</a></li>
+                <li><a href="#">Saved Jobs</a></li>
+                <li><a href="#">Career Advice</a></li>
                 <li><a href="#">Settings</a></li>
             </ul>
         </aside>
@@ -66,14 +72,14 @@
             <h2>Job Recommendations</h2>
             <div class="job-post">
                 <h3>Frontend Developer</h3>
-                <p>Dayforce</p>
+                <p>Company: XYZ Tech</p>
                 <p>Location: Remote</p>
                 <button class="apply-btn">Apply</button>
             </div>
             <div class="job-post">
                 <h3>Backend Developer</h3>
-                <p>Company: Rogers Capital</p>
-                <p>Location: Ébène</p>
+                <p>Company: DEF Solutions</p>
+                <p>Location: New York, NY</p>
                 <button class="apply-btn">Apply</button>
             </div>
             <!-- Additional job posts can go here -->

@@ -6,11 +6,11 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #8886bd;
 }
 
 header {
-    background-color: #6c63ff;
+    background-color: white;
     color: white;
     padding: 10px 0;
     display: flex;
@@ -26,55 +26,52 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 90%;
-    max-width: 1200px;
+    width: 80%;
 }
 
-.mainlogo {
-    color:#4e396f;
-    font-size: 2.5rem;
-    font-style: italic;
-    text-transform: uppercase;
-    margin-right: 90px;
-    
+.logo {
+  color: #5d5d5d;
+  font-style: italic;
+  text-transform: uppercase;
+  font-size: 20px;
 }
+
 
 .search-bar {
-    display: flex;
-    justify-content: center; 
-    align-items: center;    
-    flex-grow: 1;  
-    margin-right: 40px;
+    flex-grow: 1;             
+    margin: 0 20px;           
+    display: flex;            
+    align-items: center;       
 }
 
 .search-bar input {
-    padding: 8px;
-    width: 100%; 
-    max-width: 500px; 
-    border-radius: 5px 0 0 5px;
-    border: none;
-    outline: none;
-
+    padding: 8px;             
+    width: 100%;              
+    max-width: 400px;      
+    border-radius: 5px;       
+    border: 1px solid #ccc;   
 }
 
-.search-btn {
-    padding: 8px 12px;
-    background-color: #6c63ff;
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 0 5px 5px 0; 
+.search-bar .search-btn {
+    padding: 8px 15px;        
+    border-radius: 5px;       
+    border: none;            
+    background-color: #6c63ff; 
+    color: white;             
+    cursor: pointer;         
+    margin-left: 10px;       
+    transition: background-color 0.3s; 
 }
 
-.search-btn:hover {
+.search-bar .search-btn:hover {
     background-color: #5752d1; 
 }
+
 
 .nav-links {
     list-style: none;
     display: flex;
     margin-right: 20px;
-    white-space: nowrap; 
 }
 
 .nav-links li {
@@ -86,7 +83,6 @@ nav {
     text-decoration: none;
     font-size: 1rem;
 }
-
 
 .nav-links a:hover {
     text-decoration: underline;
@@ -100,7 +96,7 @@ nav {
 .sidebar {
     width: 250px;
     padding: 20px;
-    background-color: #d0cef2;
+    background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -192,14 +188,37 @@ nav {
     }
 
     .sidebar {
-        width: 100%; 
+        width: 100%;
         margin-bottom: 20px;
     }
 
     .main-feed {
-        margin-left: 0;
+        margin-left: 0; 
     }
-
-
 }
 
+.links {
+    list-style-type: none; 
+    display: flex; 
+    gap: 15px; 
+}
+
+.links li a {
+    text-decoration: none; 
+    color: #5d5d5d; 
+    padding: 8px 15px; 
+    transition: background-color 0.3s; 
+}
+
+.links li a:hover {
+    background-color: rgba(255, 255, 255, 0.2); 
+    border-radius: 5px; 
+}
+
+
+@media (max-width: 768px) {
+    .links {
+        flex-direction: column; 
+        gap: 10px; 
+    }
+}
