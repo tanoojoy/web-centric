@@ -28,7 +28,7 @@
     <!-- Navigation Bar -->
     <header>
         <nav>
-            <div class="logo">Talent Hub</div>
+            <div class="logo">Talent<b>Hub</b></div>
             <div class="search-bar">
                 <input type="text" placeholder="Search for jobs, companies...">
                 <button class="search-btn">Search</button>
@@ -49,11 +49,12 @@
 
             <div class="logout">
                 <form action="backend/logout.php" method="POST">
-                    <button type="submit" class="logout-btn">Logout</button>
+                    <button type="submit" class="logout-btn">
+                     <img src="img/logoutButton.png" alt="Logout" class="logout-icon"> <b> Logout </b>
+                    </button>
                 </form>
             </div>
             
-           
         </nav>
     </header>
 
@@ -80,17 +81,38 @@
             <h2>Job Recommendations</h2>
             <div class="job-post">
                 <h3>Frontend Developer</h3>
-                <p>Company: XYZ Tech</p>
+                <p>Company: DayForce</p>
                 <p>Location: Remote</p>
                 <button class="apply-btn">Apply</button>
             </div>
             <div class="job-post">
                 <h3>Backend Developer</h3>
-                <p>Company: DEF Solutions</p>
-                <p>Location: New York, NY</p>
+                <p>Company: MCB</p>
+                <p>Location: Quatre-Born, St-Jean</p>
                 <button class="apply-btn">Apply</button>
             </div>
             <!-- Additional job posts can go here -->
+            <div class="job-post">
+                <h3>Backend Developer</h3>
+                <p>Company: MCB</p>
+                <p>Location: Quatre-Born, St-Jean</p>
+                <button class="apply-btn">Apply</button>
+            </div>
+
+            <div class="job-post">
+                <h3>Backend Developer</h3>
+                <p>Company: MCB</p>
+                <p>Location: Quatre-Born, St-Jean</p>
+                <button class="apply-btn">Apply</button>
+            </div>
+
+            <div class="job-post">
+                <h3>Backend Developer</h3>
+                <p>Company: MCB</p>
+                <p>Location: Quatre-Born, St-Jean</p>
+                <button class="apply-btn">Apply</button>
+            </div>
+
         </section>
     </div>
 

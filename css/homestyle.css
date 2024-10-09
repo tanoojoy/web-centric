@@ -20,6 +20,7 @@ header {
     width: 100%;
     top: 0;
     z-index: 100;
+    
 }
 
 nav {
@@ -68,19 +69,31 @@ nav {
 }
 
 
- .logout-btn {
-    background-color: #6c63ff;
-    color: white;
+.logout {
+    margin-left: auto; 
+}
+
+.logout-btn {
+    background-color: white;
+    color: #28258d;
     border: none;
-    padding: 10px 20px;
+    padding: 5px 10px; 
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    margin-bottom: 100px;
+    display: flex; 
+    align-items: center; 
+    font-size: 0.9rem; 
 }
 
- .logout-btn:hover {
-    background-color: #5752d1;
+.logout-icon {
+    width: 16px; 
+    height: 16px;
+    margin-right: 5px;
+}
+
+.logout-btn:hover {
+    background-color: white; 
 }
 
 
@@ -90,6 +103,7 @@ nav {
     justify-content: space-between;
     width: 80%;
 }
+
 
 
 
@@ -119,10 +133,14 @@ nav {
 }
 
 .sidebar {
-    width: 250px;
+    position: fixed; /* Keep the sidebar fixed */
+    top: 100px; /* Adjust this based on the height of your header */
+    width: 230px; /* Keep the width of the sidebar */
+    height: calc(100vh - 80px); /* Full height minus the header height */
     padding: 20px;
-    background-color: #fff;
+    background-color: #575591;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow-y: auto; /* Enable scrolling within the sidebar if content overflows */
 }
 
 .profile-pic {
@@ -136,12 +154,14 @@ nav {
 .profile-summary h3 {
     font-size: 1.2rem;
     margin-bottom: 5px;
+    color: black; 
 }
 
 .profile-summary p {
     font-size: 0.9rem;
-    color: gray;
+    color:black; 
 }
+
 
 .sidebar-links {
     list-style: none;
@@ -154,7 +174,7 @@ nav {
 
 .sidebar-links a {
     text-decoration: none;
-    color: #333;
+    color: black;
     font-size: 1rem;
 }
 
@@ -164,10 +184,10 @@ nav {
 }
 
 .main-feed {
-    flex-grow: 2;
+    flex-grow: 2; /* Allow main feed to take up remaining space */
     padding: 20px;
     background-color: #fff;
-    margin: 0 20px;
+    margin-left: 250px; /* Add margin to the left equal to the sidebar width */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
