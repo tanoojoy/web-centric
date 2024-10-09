@@ -68,6 +68,31 @@ nav {
 }
 
 
+ .logout-btn {
+    background-color: #6c63ff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 100px;
+}
+
+ .logout-btn:hover {
+    background-color: #5752d1;
+}
+
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+}
+
+
+
 .nav-links {
     list-style: none;
     display: flex;
@@ -222,3 +247,5 @@ nav {
         gap: 10px; 
     }
 }
+
+

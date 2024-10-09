@@ -44,6 +44,12 @@
                     <li><a href="#">Profile</a></li>
                 </ul>
             </div>
+
+        <div class="logout">
+            <form action="backend/logout.php" method="POST">
+                <button type="submit" class="logout-btn">Logout</button>
+            </form>
+        </div>
             
            
         </nav>
