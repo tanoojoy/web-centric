@@ -67,7 +67,8 @@ nav {
     background-color: #5752d1; 
 }
 
-form.logout-btn {
+
+ .logout-btn {
     background-color: #6c63ff;
     color: white;
     border: none;
@@ -78,10 +79,9 @@ form.logout-btn {
     margin-bottom: 100px;
 }
 
- form.logout-btn:hover {
+ .logout-btn:hover {
     background-color: #5752d1;
 }
-
 
 
 nav {
