@@ -15,7 +15,7 @@
         ?>
     </div>
     <h2 style="text-align: center"> Create Account </h2>
-    <form class="login" action="/backend/sign_up.php" method="POST">
+    <form class="login" action="backend/sign_up.php" method="POST">
         <label for="username">Username:</label>
         <div class="input">
             <input type="email" name="username" placeholder="Email" required>
