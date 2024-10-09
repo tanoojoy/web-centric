@@ -3,13 +3,13 @@ include("connectDB.php");
 
 // Get form input
 $user = $_POST['username'];  //rhea
-$pass = $_POST['password'];  //bhurtu
+$pass = $_POST['password'];  //bhurtun
 
 // hash the password
 $hashed_pass = password_hash($pass, PASSWORD_BCRYPT);
 
 //get that user's data from DB
-$sql = "SELECT user_id, username, password FROM users WHERE username='$user'";
+$sql = "SELECT user_id, username, password FROM test_login WHERE username='$user'";
 
 $result = $conn->query($sql);
 

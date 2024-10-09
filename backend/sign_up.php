@@ -2,17 +2,20 @@
 include("connectDB.php");
 
 //Get form input
-$user = $_POST['username'];
-$pass = $_POST['password'];
+$user = $_POST['username'];     //tejal@uom.com
+$pass = $_POST['password'];  //tejal
 
 //Hash the password
 $hashed_pass = password_hash($pass, PASSWORD_BCRYPT);
 
 // Insert into database
-$sql = "INSERT INTO users (user_id, username, password) VALUES (UUID(), '$user', '$hashed_pass')";
+$sql = "INSERT INTO test_login (user_id, username, password) VALUES (UUID(), '$user', '$hashed_pass')";
 
 if ($conn->query($sql) === TRUE) {
-   header("Location: ../index.php");
+   session_start(); 
+   $_SESSION['username'] = $user; 
+   header("Location: ../homepage.php");
+   
 } else {
    echo "Error: " . $sql . "<br>" . $conn->error;
 }
