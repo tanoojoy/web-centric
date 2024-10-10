@@ -11,13 +11,8 @@
         
         //fetch page configurations
         include("backend/config.php");
-
-        //fetch job postings
-        $sql = "SELECT jobposting.title, jobposting.description, jobposting.location, company.name AS company_name
-                FROM jobposting
-                JOIN company ON jobposting.company_id = company.company_id;";
-        $jobpostings = $conn->query($sql);
-        $conn->close();
+        include("backend/functions.php");
+        
     }
 ?>
 
@@ -89,29 +84,17 @@
         <section class="main-feed">
             <h2>Job Recommendations</h2>
             <?php
-                
-                if ($jobpostings->num_rows > 0) { // Check if any records were found
-                    while($row = $jobpostings->fetch_assoc()) {  //store the SQL row in a variable $row
-                        $job_title = $row['title'];
-                        $job_description = $row['description'];
-                        $job_location = $row['location'];
-                        $company_name = $row['company_name'];
-                        
-
-                        //echo "<p>" . $job_title . "</p>";
-
-                        echo "<div class=\"job-post\">
-                            <h3>" . $job_title ."</h3>
-                            <p>Company: " . $company_name . "</p>
-                            <p>Description: ". $job_description ."
-                            <p>Location: " . $job_location . "</p>
-                            <button class=\"apply-btn\">Apply</button>
-                            </div>";
-                    }
-                } 
-                else {
-                    echo "There was a problem querying the config table";
+                $jobs = get_all_jobs();
+                foreach($jobs as $job){
+                    echo "<div class=\"job-post\">
+                        <h3>" . $job['job_title'] ."</h3>
+                        <p>Company: " . $job['company_name'] . "</p>
+                        <p>Description: ". $job['job_description'] ."
+                        <p>Location: " . $job['job_location'] . "</p>
+                        <button class=\"apply-btn\">Apply</button>
+                        </div>";
                 }
+                $conn->close();
             ?>
         </section>
     </div>

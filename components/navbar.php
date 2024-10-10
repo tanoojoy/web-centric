@@ -5,10 +5,19 @@
             <li><a href="/">Home</a></li>
             <li>About Us</li>
             <li>Work</li>
-            <li>
+            <li <?php 
+                    if($_SERVER['REQUEST_URI'] == "/login.php"){
+                        echo "class=\"active\"";
+                    }
+                ?>>
                 <a href="login.php">Login</a>
             </li>
-            <li>
+            <li
+                <?php 
+                    if($_SERVER['REQUEST_URI'] == "/register.php"){
+                        echo "class=\"active\"";
+                    }
+                ?>>
                 <a href="register.php">Create Account</a>
             </li>
         </ul>
