@@ -91,7 +91,7 @@
             <?php
                 $jobs = get_all_jobs();
                 foreach($jobs as $job){
-                    echo "<div class=\"job-post\" data-title=\"" . $job['job_title'] . "\" data-company=\"" . $job['company_name'] . "\">
+                    echo "<div class=\"job-post\">
                         <h3>" . $job['job_title'] ."</h3>
                         <p>Company: " . $job['company_name'] . "</p>
                         <p>Description: ". $job['job_description'] ."
