@@ -1,4 +1,4 @@
-?<?php
+<?php
     session_start();
 
     // Check if the user is logged in
@@ -24,6 +24,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $title; ?></title>
     <link rel="stylesheet" href="css/homestyle.css">
+    <script src="search.js" defer></script>
 
 </head>
 <body>
@@ -34,8 +35,12 @@
         <nav>
             <div class="logo">Talent<b>Hub</b></div>
             <div class="search-bar">
-                <input type="text" placeholder="Search for jobs, companies...">
-                <button class="search-btn">Search</button>
+                <form class="form">
+                 <input type="text" placeholder="Search for jobs, companies...">
+                    <button class="search-btn" type="submit"> 
+                    <img src="img/search-button.png"  alt="Search" style="width: 20px; height: 20px;">
+                 </button> 
+                </form> 
             </div>
 
            
@@ -86,7 +91,7 @@
             <?php
                 $jobs = get_all_jobs();
                 foreach($jobs as $job){
-                    echo "<div class=\"job-post\">
+                    echo "<div class=\"job-post\" data-title=\"" . $job['job_title'] . "\" data-company=\"" . $job['company_name'] . "\">
                         <h3>" . $job['job_title'] ."</h3>
                         <p>Company: " . $job['company_name'] . "</p>
                         <p>Description: ". $job['job_description'] ."
