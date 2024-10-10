@@ -1,4 +1,4 @@
-?<?php
+<?php
     session_start();
 
     // Check if the user is logged in
@@ -36,8 +36,12 @@
         <nav>
             <div class="logo">Talent<b>Hub</b></div>
             <div class="search-bar">
-                <input type="text" placeholder="Search for jobs, companies...">
-                <button class="search-btn">Search</button>
+                <form class="form">
+                 <input type="text" placeholder="Search for jobs, companies...">
+                    <button class="search-btn" type="submit"> 
+                    <img src="img/search-button.png"  alt="Search" style="width: 20px; height: 20px;">
+                 </button> 
+                </form> 
             </div>
 
            
