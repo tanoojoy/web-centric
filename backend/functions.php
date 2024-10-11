@@ -1,11 +1,26 @@
 <?php
 include("connectDB.php");
 
-function get_all_jobs(){
+function search_jobs($keyword = null, $location = null, $emp_type =  null, $expiry_date =  null){
+    $sql = "";
     $reponse = [];
-    $sql = "SELECT jobposting.title, jobposting.description, jobposting.location, company.name AS company_name
-    FROM jobposting
-    JOIN company ON jobposting.company_id = company.company_id;";
+    //no arguments. Fetch ALL jobs
+    if (!(isset($keyword) && isset($location) && isset($emp_type) && isset($expiry_date))) {
+        $sql = "SELECT jobposting.title, jobposting.description, jobposting.location, company.name AS company_name
+                FROM jobposting
+                JOIN company ON jobposting.company_id = company.company_id;";
+    }
+    
+    //only keyword argument, search jobs with keyword
+    if(isset($keyword) && !(isset($location) && isset($emp_type) && isset($expiry_date))){
+        $sql = "SELECT jobposting.title, jobposting.description, jobposting.location, company.name AS company_name
+                FROM jobposting
+                JOIN company ON jobposting.company_id = company.company_id
+                WHERE INSTR(jobposting.title, '" . $keyword . "') > 0 
+                    OR INSTR(jobposting.description, '" . $keyword . "') > 0 
+                    OR INSTR(jobposting.location, '" . $keyword . "') > 0 
+                    OR INSTR(company.name, '" . $keyword . "') > 0;";
+    }
 
     $jobpostings = $GLOBALS['conn']->query($sql);
 
