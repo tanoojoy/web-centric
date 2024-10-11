@@ -1,0 +1,185 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #8886bd;
+}
+
+header {
+    background-color: white;
+    color: white;
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+}
+
+nav .logo {
+    color: #5d5d5d;
+    font-style: italic;
+    text-transform: uppercase;
+    font-size: 20px;
+}
+
+nav .links {
+    list-style: none;
+    display: flex;
+    margin-right: 20px;
+}
+
+nav .links li {
+    margin: 0 10px;
+}
+
+nav .links  a {
+    color:#5d5d5d;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+.logout-btn {
+    background-color: white;
+    color: #28258d;
+    border: none;
+    padding: 5px 10px; 
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex; 
+    align-items: center; 
+    font-size: 0.9rem;
+}
+
+.logout-icon {
+    width: 16px; 
+    height: 16px;
+    margin-right: 5px;
+}
+
+
+.logout-btn:hover {
+    background-color: white; 
+}
+
+.profile-container {
+    max-width: 900px;
+    margin: 100px auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profile-pic-section {
+    text-align: center;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center; /* Centers the image */
+    align-items: center;     /* Vertically centers the image */
+}
+
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid #6c63ff;
+    object-fit: cover; /* Ensures the image retains aspect ratio and fills the area */
+    display: block; /* Makes sure the image behaves correctly in a block layout */
+}
+
+
+.profile-info label {
+    display: block;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.profile-info input, .profile-info textarea, .profile-info select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.profile-info textarea {
+    resize: vertical;
+}
+
+.submit-section {
+    text-align: center;
+}
+
+.submit-btn {
+    background-color: #6c63ff;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #5752d1;
+}
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .profile-container {
+        padding: 20px;
+    }
+}
+
+.changeOption {
+    text-align: center; /* Centers the contents inside this div */
+    margin-bottom: 50px;   /* Adds space from the top */
+}
+
+.changeOption input[type="file"] {
+    display: block;
+    margin-left:330px;
+}
+
+
+.fname:after {
+    content:" *";
+    color: red;
+}
+
+.lname:after {
+    content:" *";
+    color: red;
+}
+
+.email:after {
+    content:" *";
+    color: red;
+}
+
