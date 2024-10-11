@@ -2,18 +2,15 @@
     session_start();
 
     // Check if the user is logged in
-    if (!isset($_SESSION['company'])) {
+    if (!isset($_SESSION['username'])) {
         header("Location: index.php");
         exit();
     }
     else{
-        $username = $_SESSION['company'];
+        $username = $_SESSION['username'];
         
         //fetch page configurations
         include("backend/config.php");
-        include("backend/functions.php");
-        include("backend/logout.php");
-        
     }
 ?>
 
@@ -24,7 +21,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Company Profile - <?php echo $company['company_name']; ?></title>
+    <title><?php echo $title; ?></title>
     <link rel="stylesheet" href="css/company-profile.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
@@ -53,30 +50,25 @@
 </header>
 
 <div class="profile-container">
-    <form action="backend/update_company_profile.php" method="POST" enctype="multipart/form-data">
+    <form action="" method="POST">
 
         <!-- Company Banner & Logo Section -->
         <div class="company-banner">
-            <img src="company_logos/<?php echo $company['logo']; ?>" alt="Company Logo" class="company-logo">
+            <img src="img/capy.jpeg" alt="Company Logo" class="company-logo">
         </div>
 
         <!-- Company Details Card -->
         <div class="company-info-card">
-            <div class="company-info-header">
-                <h2><?php echo $company['company_name']; ?></h2>
-                <small>Founded: <?php echo $company['founded_year']; ?></small>
-            </div>
-
             <div class="company-details">
-            <label for="industry"><strong>Industry:</strong></label>
-            <select name="industry" id="industry" required>
-                <option value="Information and Technology">Information and Technology</option>
-                <option value="Finance">Fianance</option>
-                <option value="Healthcare">Healthcare</option>
-                <option value="Sales">Sales</option>
-                <option value="Marketing">Marketing</option>
-                <option value="Education">Education</option>
-            </select>
+                <label for="industry"><strong>Industry:</strong></label>
+                <select name="industry" id="industry" required>
+                    <option value="Information and Technology">Information and Technology</option>
+                    <option value="Finance">Fianance</option>
+                    <option value="Healthcare">Healthcare</option>
+                    <option value="Sales">Sales</option>
+                    <option value="Marketing">Marketing</option>
+                    <option value="Education">Education</option>
+                </select>
 
                 <label for="location"><strong>Location:</strong></label>
                     <select name="loaction" id="location" required>

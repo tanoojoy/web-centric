@@ -11,9 +11,6 @@
         
         //fetch page configurations
         include("backend/config.php");
-        include("backend/functions.php");
-        include("backend/logout.php");
-        
     }
 ?>
 
@@ -22,7 +19,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile - <?php echo $user['first_name'] . ' ' . $user['last_name']; ?></title>
+    <title><?php echo $title; ?></title>
     <link rel="stylesheet" href="css/profile.css">
 </head>
 <body>
@@ -52,7 +49,7 @@
 <div class="profile-container">
     <form action="backend/update_profile.php" method="POST" enctype="multipart/form-data">
         <div class="profile-pic-section">
-            <img src="profile_pics/<?php echo $user['profile_picture']; ?>" alt="Profile Picture" class="profile-pic">
+            <img src="img/capy.jpeg" alt="Profile Picture" class="profile-pic">
         </div>
 
         <div class="changeOption">
