@@ -158,8 +158,8 @@ nav .links  a {
 }
 
 .changeOption {
-    text-align: center; /* Centers the contents inside this div */
-    margin-bottom: 50px;   /* Adds space from the top */
+    text-align: center; 
+    margin-bottom: 50px;   
 }
 
 .changeOption input[type="file"] {
