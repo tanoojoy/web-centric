@@ -77,10 +77,10 @@
 
             <label for="location"><strong>Location:</strong></label>
             <select name="loaction" id="location">
-                <option value="Bel-Air">Bel-Air, Central Flacq Mauritius</option>
-                <option value="St-Jean">St-Jean, Quatre Born Mauritius</option>
-                <option value="Ebene">Ebene, Mauritius</option>
-                <option value="Reduit">Reduit, Moka Mauritius</option>
+                <option value="North">North</option>
+                <option value="South">South</option>
+                <option value="East">East</option>
+                <option value="West">West</option>
             </select>
            
             <label for="industry"><strong>Industry:</strong></label>
