@@ -139,13 +139,12 @@ nav .links  a {
     margin-top: 20px;
 }
 
-.company-details input, .company-details textarea {
+.company-details input, .company-details textarea, .company-details select {
     width: 100%;
-    padding: 12px;
-    margin-top: 10px;
-    border-radius: 6px;
+    padding: 10px;
+    margin-bottom: 15px;
     border: 1px solid #ccc;
-    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
 }
 
 .company-details textarea {
