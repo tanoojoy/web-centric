@@ -8,12 +8,10 @@
     }
     else{
         $username = $_SESSION['username'];
-        
         //fetch page configurations
         include("backend/config.php");
         include("backend/functions.php");
         include("backend/logout.php");
-        
     }
 ?>
 
