@@ -53,7 +53,7 @@ nav .links  a {
 }
 
 .nav-links a:hover {
-    background-color: #e1c8c7;
+    background-color: #f0e8e8;
 }
 
 .logout-btn {
@@ -67,6 +67,7 @@ nav .links  a {
     display: flex; 
     align-items: center; 
     font-size: 0.9rem;
+    margin-right:15px;
 }
 
 .logout-icon {
