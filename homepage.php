@@ -90,7 +90,7 @@
         <section class="main-feed">
             <h2>Job Recommendations</h2>
             <?php
-                $jobs = get_all_jobs();
+                $jobs = search_jobs();
                 foreach($jobs as $job){
                     echo "<div class=\"job-post\">
                         <h3>" . $job['job_title'] ."</h3>
