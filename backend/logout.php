@@ -1,10 +1,11 @@
 <?php
     if (isset($_POST['logout'])) {
-        session_unset(); // Unset all session variables
-        session_destroy(); // Destroy the session itself
-
-        header("Location: ../index.php");
-        exit();
+        session_start();
+        unset($_SESSION);
+        session_destroy();
+        session_write_close();
+        header('Location: ../index.php');
+        die;
     }
 
 ?>

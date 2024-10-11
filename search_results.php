@@ -8,13 +8,13 @@
     }
     else{
         $username = $_SESSION['username'];
-        // echo 'tanoo';
         //fetch page configurations
         include("backend/config.php");
         include("backend/functions.php");
         include("backend/logout.php");
     }
 
+    $keyword = $_POST['keyword'];
 ?>
 
  
@@ -28,22 +28,22 @@
 </head>
 <body>
 
-    <?php echo $username; ?>
+
     <!-- Navigation Bar -->
     <header>
         <nav>
             <div class="logo">Talent<b>Hub</b></div>
             <div class="search-bar">
                 <form action="search_results.php" method= "post" class="form">
-                 <input type="text" name="keyword" placeholder="Search for jobs, companies...">
+                 <input type="text" placeholder="Search for jobs, companies..." name="keyword">
                     <button class="search-btn" type="submit"> 
-                    <img src="img/lens.jpg"  alt="Search" style="width: 20px; height: 20px;">
+                    <img src="img/search-button.png"  alt="Search" style="width: 20px; height: 20px;">
                  </button> 
                 </form> 
             </div>
             <div>
                 <ul class="links">
-                    <li><a href="homepage.php">Home</a></li>
+                    <li><a href="/">Home</a></li>
                     <li><a href="#">Network</a></li>
                     <li><a href="#">Work</a></li>
                     <li><a href="#">Jobs</a></li>
@@ -68,7 +68,7 @@
         <!-- Sidebar -->
         <aside class="sidebar">
             <div class="profile-summary">
-                <img src="img/capy.jpeg" alt="Profile Picture" class="profile-pic">
+                <img src="profile-pic.jpg" alt="Profile Picture" class="profile-pic">
                 <h3><?php echo $username; ?></h3>
                 <p>Software Developer at ABC Corp</p>
             </div>
@@ -85,7 +85,7 @@
         <section class="main-feed">
             <h2>Job Recommendations</h2>
             <?php
-                $jobs = search_jobs();
+                $jobs = search_jobs($keyword);
                 foreach($jobs as $job){
                     echo "<div class=\"job-post\">
                         <h3>" . $job['job_title'] ."</h3>

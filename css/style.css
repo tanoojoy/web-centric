@@ -59,18 +59,12 @@ nav {
 }
 
 .search-btn {
-    background-color: #fadedc;  
+    background-color: #ba4139;  
     border: none;                   
     padding: 0;                     
     cursor: pointer; 
     margin-right:10;     
 }
-
-.search-btn img {  
-    margin-left:10;               
-}
-
-
 
 .logout {
     margin-left: auto; 

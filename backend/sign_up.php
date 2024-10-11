@@ -12,7 +12,10 @@ $hashed_pass = password_hash($pass, PASSWORD_BCRYPT);
 $sql = "INSERT INTO test_login (user_id, username, password) VALUES (UUID(), '$user', '$hashed_pass')";
 
 if ($conn->query($sql) === TRUE) {
+   
+   $conn->close();
    session_start(); 
+   
    $_SESSION['username'] = $user; 
    header("Location: ../homepage.php");
    
@@ -21,5 +24,5 @@ if ($conn->query($sql) === TRUE) {
 }
 
 // Close connection
-$conn->close();
+
 ?>

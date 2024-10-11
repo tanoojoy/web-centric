@@ -42,7 +42,13 @@ function search_jobs($keyword = null, $location = null, $emp_type =  null, $expi
         }
     } 
     else {
-        echo "There are no jobs available.";
+        if(isset($keyword)){
+            echo "There are no jobs that match '$keyword'";
+        }
+        else{
+            echo "There are no jobs available.";
+        }
+        
     }
 
     return $reponse;
