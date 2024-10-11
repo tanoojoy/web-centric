@@ -58,11 +58,11 @@
             </div>
 
             <div class="logout">
-                <form action="backend/logout.php" method="POST">
-                    <button type="submit" class="logout-btn">
-                     <img src="img/logoutButton.png" alt="Logout" class="logout-icon"> <b> Logout </b>
-                    </button>
-                </form>
+            <form action="backend/logout.php" method="POST">
+                <input type="submit" name="logout" value="Logout" class="logout-btn">
+                <img src="img/logoutButton.png" alt="Logout" class="logout-icon" style="vertical-align: middle;">
+            </form>
+
             </div>
             
         </nav>
