@@ -6,7 +6,7 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #8886bd;
+    background-image: linear-gradient(rgba(243,129,129,.9), rgba(252,227,138,.9));
 }
 
 header {
@@ -55,6 +55,49 @@ nav .links  a {
 .nav-links a:hover {
     text-decoration: underline;
 }
+
+/* ///////////////////////// */
+
+.landing-page header {
+    min-height: 80px;
+    display: flex;
+  }
+  
+  .landing-page header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .landing-page header .logo {
+    color: #5d5d5d;
+    font-style: italic;
+    text-transform: uppercase;
+    font-size: 20px;
+  }
+  
+  .landing-page header .links {
+    display: flex;
+    align-items: center;
+  }
+  
+  .landing-page header .links li {
+    margin-left: 30px;
+    color: #5d5d5d;
+    cursor: pointer;
+    transition: .3s;
+  }
+  .landing-page header .links li:last-child {
+    border-radius: 20px;
+    padding: 10px 20px;
+    color: #FFF;
+    background-color: #6c63ff;
+  }
+  .landing-page header .links li:not(:last-child):hover {
+    color: #6c63ff;
+  }
+
+/* /////////////////////////// */
 
 .logout-btn {
     background-color: white;
@@ -181,5 +224,66 @@ nav .links  a {
 .email:after {
     content:" *";
     color: red;
+}
+
+
+.login{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.input{
+  position: relative;
+  width: 90%;
+  margin: 15px auto;
+  
+  span{
+    position: absolute;
+    display: block;
+    color: darken(#EDEDED, 10%);
+    left: 10px;
+    top: 8px;
+    font-size: 20px;
+  }
+  
+  input{
+    width: 100%;
+    padding: 10px 5px 10px 40px;
+    display: block;
+    border: 1px solid #EDEDED;
+    border-radius: 4px;
+    transition: 0.2s ease-out;
+    color: darken(#EDEDED, 30%);
+    
+    &:focus{
+      padding: 10px 5px 10px 10px;
+      outline: 0;
+      border-color: #FF7052;
+    }
+  }
+}
+
+.submit{
+  width: 90%;
+  height: 45px;
+  display: block;
+  margin: 0 auto -15px auto;
+  background: #fff;
+  border-radius: 20px;
+  border: 1px solid #FF7052;
+  color: #FF7052;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0px 0px 0px 7px #fff;
+  transition: 0.2s ease-out;
+  
+  &:hover, &:focus{
+    background: #FF7052;
+    color: #fff;
+    outline: 0;
+  }
 }
 

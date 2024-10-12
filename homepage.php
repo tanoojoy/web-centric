@@ -12,12 +12,11 @@
         //fetch page configurations
         include("backend/config.php");
         include("backend/functions.php");
-        include("backend/logout.php");
+        // include("backend/logout.php");
     }
 
 ?>
 
- 
 <!DOCTYPE html>
 <html lang="en">
 <head>
