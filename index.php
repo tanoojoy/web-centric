@@ -100,7 +100,7 @@
                 <div class="main-logo"><?php  echo $title;  ?></div>
                     <nav>
                         <ul class="main-menu">
-                        <li><a href="#section-2">About</a></li>
+                        <li><a href="aboutUs.php">About Us</a></li>
                         <li><a href="#section-5">Service</a></li>
                         <li><a href="#section-7">Work</a></li>
                         <li ><a onclick="openPopup()">Log In</a></li>

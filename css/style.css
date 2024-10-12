@@ -242,7 +242,6 @@ a:visited {
     padding: 20px;
     background-color:rgba(255, 255, 255, 0.3);
     margin-left: 326px; 
-    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
     margin-bottom: 10px;
     height: 100%;
     border-radius: 7px;
@@ -255,8 +254,12 @@ a:visited {
     font-size: 1.5rem;
     margin-bottom: 20px;
     text-align:center;
-    color:#332f2f
+    color:#7a6b69;
+    font-family: cursive;
+    
+    
 }
+
 
 .job-post {
     padding: 15px;
@@ -265,11 +268,13 @@ a:visited {
     border-radius: 5px;
     background-color:white;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+    color:#5f4e4b;
 }
 
 .job-post h3 {
     font-size: 1.2rem;
     margin-bottom: 5px;
+    color:#5f4e4b;
 }
 
 .apply-btn {
