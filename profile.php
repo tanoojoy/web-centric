@@ -28,7 +28,11 @@
     <nav>
         <div class="logo">Talent<b>Hub</b></div>
         <ul class="links">
+<<<<<<< Updated upstream
             <li><a href="homepage.php">Home</a></li>
+=======
+            <li><a href="/web-centric/homepage.php">Home</a></li>
+>>>>>>> Stashed changes
             <li><a href="#">Network</a></li>
             <li><a href="#">Work</a></li>
             <li><a href="#">Jobs</a></li>
@@ -73,7 +77,7 @@
             <textarea name="summary" id="summary" rows="4"></textarea>
 
             <label for="location"><strong>Location:</strong></label>
-            <select name="loaction" id="location">
+            <select name="location" id="location">
                 <option value="North">North</option>
                 <option value="South">South</option>
                 <option value="East">East</option>

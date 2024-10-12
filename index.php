@@ -127,16 +127,16 @@
                 </div>
                 <div id="top-banner-2" class="banner">
                 <div class="banner-inner-wrapper">
-                    <h2>What We Do</h2>
-                    <h1>Forge<br><?php echo "Connections"; ?></h1>
+                    <h2>For Job Seekers</h2>
+                    <h1>Build your<br>career</h1>
                     <div class="line"></div>
                     <div class="learn-more-button"><a onclick="openPopup2()">Join Us</a></div>
                 </div>
                 </div>
                 <div id="top-banner-3" class="banner">
                 <div class="banner-inner-wrapper">
-                    <h2>Here You Are</h2>
-                    <h1>Finding<br> a job</h1>
+                    <h2>For Employers</h2>
+                    <h1>Find<br>amazing talent</h1>
                     <div class="line"></div>
                     <div class="learn-more-button"><a onclick="openPopup2()">Find a job</a></div>
                 </div>
