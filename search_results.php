@@ -38,7 +38,7 @@
                 <form action="search_results.php" method= "post" class="form">
                  <input type="text" placeholder="Search for jobs, companies..." name="keyword">
                     <button class="search-btn" type="submit"> 
-                    <img src="img/search-button.png"  alt="Search" style="width: 20px; height: 20px;">
+                    <img src="img/searchButton.png"  alt="Search" style="width: 20px; height: 20px;">
                  </button> 
                 </form> 
             </div>

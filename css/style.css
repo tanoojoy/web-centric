@@ -1,11 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: Arial, sans-serif;
-    background-color: #EEACA9;
+    background-image: linear-gradient(rgba(243,129,129,.9), rgba(252,227,138,.9));
 }
 
 header {
-    background-color:  #fadedc;
-    color:  #fadedc;
+    background-color: #fadedc;
+    color: white;
     padding: 10px 0;
     display: flex;
     justify-content: center;
@@ -14,109 +20,32 @@ header {
     width: 100%;
     top: 0;
     z-index: 100;
-    
 }
 
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 80%;
+    width: 90%;
+    padding:0 20px;
 }
 
-.logo {
-  color: #5d5d5d;
-  font-style: italic;
-  text-transform: uppercase;
-  font-size: 20px;
+nav .logo {
+    color: #5d5d5d;
+    font-style: italic;
+    text-transform: uppercase;
+    font-size: 20px;
 }
 
-
-.search-bar {
-    flex-grow: 1;             
-    margin: 0 20px;           
-    display: flex;            
-    align-items: center;       
-}
-
-.search-bar input {
-    padding: 8px;             
-    width: 100%;              
-    max-width: 400px;      
-    border-radius: 5px;       
-    border: 1px solid #ccc;   
-}
-
-.search-bar {
-    padding: 8px 15px;        
-    border-radius: 5px;       
-    border: none;            
-    background-color: #fadedc; 
-    color:  #fadedc;             
-    cursor: pointer;         
-    margin-left: 10px;       
-    transition: background-color 0.3s; 
-}
-
-.search-btn {
-    background-color: #ba4139;  
-    border: none;                   
-    padding: 0;                     
-    cursor: pointer; 
-    margin-right:10;     
-}
-
-.logout {
-    margin-left: auto; 
-}
-
-.logout-btn {
-    background-color: #FADEDC; 
-    color: #28258d;
-    border: none;
-    padding: 5px 10px; 
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    display: flex; 
-    align-items: center; 
-    font-size: 0.9rem; 
-}
-
-.logout-icon {
-    width: 16px; 
-    height: 16px;
-    margin-right: 5px;
-}
-
-.logout-btn:hover {
-    background-color: white; 
-}
-
-
-
-nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 80%;
-}
-
-
-
-
-.nav-links {
+nav .links {
     list-style: none;
     display: flex;
-    margin-right: 20px;
+    margin-right: 30px;
 }
 
-.nav-links li {
-    margin: 0 10px;
-}
 
-.nav-links a {
-    color: #343C4F;
+nav .links  a {
+    color:#5d5d5d;
     text-decoration: none;
     font-size: 1rem;
 }
@@ -124,6 +53,95 @@ nav {
 .nav-links a:hover {
     text-decoration: underline;
 }
+
+.logo {
+  color: #5d5d5d;
+  font-style: italic;
+  text-transform: uppercase;
+  font-size: 20px;
+  margin-right:20px;
+}
+
+
+.search-bar .form {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar .form input {
+    padding: 10px;
+    font-size: 16px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.search-bar .form button {
+    padding: 5px;
+    background-color:  #fadedc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 3px;
+    width: 30px;  
+    height: 30px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;  
+}
+
+.search-bar .form button img {
+    width: 20px;  
+    height: 20px; 
+}
+
+.search-bar .form button:hover {
+    background-color:#ccb8b7;
+}
+
+
+
+
+.logout {
+    margin-left: auto; 
+}
+
+.logout-form {
+    display: flex;
+    align-items: center;
+}
+
+.logout-btn-container {
+    display: flex; 
+    align-items: center; 
+
+}
+
+.logout-btn {
+    background-color: #FADEDC;
+    color:  #43464b;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.logout-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 5px; 
+}
+
+.logout-btn:hover {
+    background-color:#ccb8b7;
+}
+
+
 
 .container {
     display: flex;
@@ -146,21 +164,27 @@ nav {
 
 .profile-pic {
     border-radius: 50%;
+    border: 3px solid black;
     width: 100px;
     height: 100px;
     object-fit: cover;
     margin-bottom: 10px;
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
 }
 
 .profile-summary h3 {
     font-size: 1.2rem;
     margin-bottom: 5px;
-    color:  #33315d; 
+    color:  #24242f; 
+    text-align:center;
 }
 
 .profile-summary p {
     font-size: 0.9rem;
-    color: #312e5e; 
+    color: #24242f; 
+    text-align:center;
 }
 
 
@@ -176,25 +200,25 @@ nav {
 
 a {
     text-decoration: none; 
-    color: #6c63ff; 
+    color:  rgba(219, 205, 201, 0.3); 
     font-size: 1rem; 
     transition: color 0.3s ease, transform 0.2s ease; 
 }
 
 
 a:hover {
-    color: #5752d1;
+    color:  rgba(219, 205, 201, 0.3);
     transform: scale(1.05); 
 }
 
 
 a:active {
-    color: #4b4f9b; 
+    color:  rgba(219, 205, 201, 0.3); 
 }
 
 
 a:visited {
-    color: #8a8a8a; 
+    color:  rgba(219, 205, 201, 0.3); 
 }
 
 
@@ -202,28 +226,28 @@ a:visited {
     display: block; 
     padding: 10px; 
     border-radius: 5px; 
-    color: #282c79;
+    color: #24242f ;
     font-weight: bold;
 
 }
 
 
 .sidebar-links a:hover {
-    background-color: rgba(108, 99, 255, 0.1); 
+    background-color:  rgba(249, 248, 248, 0.3); 
 }
 
 
 .main-feed {
-    flex: 0 0 300; 
+    flex: 0 0 1140px; 
     padding: 20px;
-    background-color: #fff;
+    background-color:rgba(255, 255, 255, 0.3);
     margin-left: 326px; 
     /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
-    margin-top: 19px;
+    margin-bottom: 10px;
     height: 100%;
     border-radius: 7px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
-    
+
     
 }
 
@@ -231,6 +255,7 @@ a:visited {
     font-size: 1.5rem;
     margin-bottom: 20px;
     text-align:center;
+    color:#332f2f
 }
 
 .job-post {
@@ -238,6 +263,8 @@ a:visited {
     border: 1px solid #ddd;
     margin-bottom: 15px;
     border-radius: 5px;
+    background-color:white;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
 }
 
 .job-post h3 {
@@ -246,7 +273,7 @@ a:visited {
 }
 
 .apply-btn {
-    background-color: #6c63ff;
+    background-color: #24242f;
     color: white;
     padding: 8px 12px;
     border: none;
@@ -256,7 +283,7 @@ a:visited {
 }
 
 .apply-btn:hover {
-    background-color: #5752d1; 
+    background-color:  #101015; 
 }
 
 

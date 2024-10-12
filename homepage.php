@@ -34,11 +34,15 @@
         <nav>
             <div class="logo">Talent<b>Hub</b></div>
             <div class="search-bar">
-                <form action="search_results.php" method= "post" class="form">
-                    
-                 <input type="text" name="keyword" placeholder="Search for jobs, companies..."></input>
-                </form>
-            </div>
+                    <form action="search_results.php" method="post" class="form">
+                        <input type="text" name="keyword" placeholder="Search for jobs, companies..." required>
+                        <button type="submit">
+                        <img src="img/searchButton.png" alt="Search Icon" />
+                        </button>
+                    </form>
+        </div>
+
+
             <div>
                 <ul class="links">
                     <li><a href="homepage.php">Home</a></li>
@@ -50,13 +54,18 @@
                     <li><a href="profile.php">Profile</a></li>
                 </ul>
             </div>
-            <div class="logout">
-            <form action="backend/logout.php" method="POST">
-                <input type="submit" name="logout" value="Logout" class="logout-btn">
-                <img src="img/logoutButton.png" alt="Logout" class="logout-icon" style="vertical-align: middle;">
-            </form>
 
+
+            <div class="logout">
+             <form action="backend/logout.php" method="POST" class="logout-form">
+                <div class="logout-btn-container"> 
+                    <img src="img/logoutButton.png" alt="Logout" class="logout-icon"> 
+                    <input type="submit" name="logout" value="Logout" class="logout-btn">
+                </div>
+            </form>
             </div>
+
+
             
         </nav>
     </header>

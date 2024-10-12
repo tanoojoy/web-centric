@@ -100,8 +100,8 @@ nav .links  a {
 /* /////////////////////////// */
 
 .logout-btn {
-    background-color:  #fadedc;
-    color: #43464b;
+    background-color:   #fadedc;
+    color:  #43464b;
     border: none;
     padding: 5px 10px; 
     border-radius: 5px;
@@ -134,12 +134,13 @@ nav .links  a {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8); 
 }
 
+
 .profile-pic-section {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     display: flex;
-    justify-content: center; /* Centers the image */
-    align-items: center;     /* Vertically centers the image */
+    justify-content: center; 
+    align-items: center;     
 }
 
 
@@ -177,7 +178,7 @@ nav .links  a {
 }
 
 .submit-btn {
-    background-color: #24242f;
+    background-color:  #24242f;
     color: white;
     padding: 12px 25px;
     border: none;
@@ -213,17 +214,12 @@ nav .links  a {
 }
 
 
-.fname:after {
+.name:after {
     content:" *";
     color: red;
 }
 
-.lname:after {
-    content:" *";
-    color: red;
-}
-
-.email:after {
+.website:after {
     content:" *";
     color: red;
 }
