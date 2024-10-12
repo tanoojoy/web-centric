@@ -24,6 +24,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $title; ?></title>
     <link rel="stylesheet" href="css/style.css">
+    <!-- <link rel="stylesheet" href="css/profile.css"> -->
 </head>
 <body>
 
@@ -34,11 +35,9 @@
             <div class="logo">Talent<b>Hub</b></div>
             <div class="search-bar">
                 <form action="search_results.php" method= "post" class="form">
-                 <input type="text" name="keyword" placeholder="Search for jobs, companies...">
-                    <button class="search-btn" type="submit"> 
-                    <img src="img/lens.jpg"  alt="Search" style="width: 20px; height: 20px;">
-                 </button> 
-                </form> 
+                    
+                 <input type="text" name="keyword" placeholder="Search for jobs, companies..."></input>
+                </form>
             </div>
             <div>
                 <ul class="links">

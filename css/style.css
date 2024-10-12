@@ -128,6 +128,7 @@ nav {
 .container {
     display: flex;
     margin-top: 80px; 
+    /* width: 1vw; */
 }
 
 .sidebar {
@@ -216,9 +217,12 @@ a:visited {
     flex: 0 0 300; 
     padding: 20px;
     background-color: #fff;
-    margin-left: 500px; 
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-left: 326px; 
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
     margin-top: 19px;
+    height: 100%;
+    border-radius: 7px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
     
     
 }
