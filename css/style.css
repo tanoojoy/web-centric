@@ -147,6 +147,7 @@ nav .links  a {
     display: flex;
     margin-top: 80px; 
     /* width: 1vw; */
+    margin-bottom:200px;
 }
 
 .sidebar {
