@@ -26,6 +26,14 @@
     <title><?php echo $title; ?></title>
     <link rel="stylesheet" href="css/style.css">
     <!-- <link rel="stylesheet" href="css/profile.css"> -->
+
+    <style>
+        .main-feed {
+            margin-top:20px;
+        }
+
+    </style>
+
 </head>
 <body>
 
@@ -69,7 +77,7 @@
         <!-- Sidebar -->
         <aside class="sidebar">
             <div class="profile-summary">
-                <img src="profile-pic.jpg" alt="Profile Picture" class="profile-pic">
+                <img src="img/capy.jpeg" alt="Profile Picture" class="profile-pic">
                 <h3><?php echo $username; ?></h3>
                 <p>Software Developer at ABC Corp</p>
             </div>
