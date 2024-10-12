@@ -109,8 +109,29 @@
         </section>
     </div>
 
-    <!-- hgjhj -->
-     <!-- hgjhj -->
+    <footer>
+    <div class="footerContainer">
+        <div class="socialIcons">
+            <a href=""><i class="fa-brands fa-facebook"></i></a>
+            <a href=""><i class="fa-brands fa-instagram"></i></a>
+            <a href=""><i class="fa-brands fa-twitter"></i></a>
+            <a href=""><i class="fa-brands fa-google-plus"></i></a>
+            <a href=""><i class="fa-brands fa-youtube"></i></a>
+        </div>
+
+        <div class="footer-Nav">
+                <ul>
+                    <li><a href="#">Service</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Learn More</a></li>
+                </ul>
+        </div>
+
+    </div>
+
+</footer>
+
 
 </body>
 </html>

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>About Us Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />">
 
     <style>
           *{
@@ -141,17 +142,76 @@
           }
         }
 
+        .footer{
+    background-color:#111;
+
+}
+
+.footerContainer{
+    width:100%;
+    padding:20px 20px 10px;
+    background-image: linear-gradient(rgba(243,129,129,.9), rgba(252,227,138,.9));
+    position:absolute;
+}
+
+
+.socialIcons{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+}
+
+.socialIcon a{
+    text-decoration:none;
+    padding:15px;
+    background-color:white;
+    margin:10px;
+    border-radius:50%;
+}
+
+.socialIcons a i{
+    font-size:2em;
+    color:black;
+    opacity:0.9;
+    
+}
+
+.socialIcons a:hover{
+    background-color:#111;
+    transition:0.5s;
+}
+
+.socialIcons a:hover i{
+    color:white;
+    transition:0.5;
+}
+
+.footer-Nav ul{
+    display:flex;
+    justify-content:center;
+    list-style-type:none;
+}
+
+.footer-Nav ul li a{
+    color:white;
+    margin:20px;
+    text-decoration:none;
+    font-size:1.3em;
+    opacity:0.7;
+    transition:0.5s;
+}
+
+
+.footer-Nav ul li a:hover{
+    opacity:1;
+
+}
 
     </style>
 
 </head>
 <body>
-
-    <div class="landing-page">
-        <?php
-            include("components/navbar.php");
-        ?>
-    </div>  
+  
 
     <div class="heading">
       <h1>About Us</h1>
@@ -180,6 +240,30 @@
         </div>  
       </section>  
     </div>
+
+    <footer>
+    <div class="footerContainer">
+        <div class="socialIcons">
+            <a href=""><i class="fa-brands fa-facebook"></i></a>
+            <a href=""><i class="fa-brands fa-instagram"></i></a>
+            <a href=""><i class="fa-brands fa-twitter"></i></a>
+            <a href=""><i class="fa-brands fa-google-plus"></i></a>
+            <a href=""><i class="fa-brands fa-youtube"></i></a>
+        </div>
+
+        <div class="footer-Nav">
+                <ul>
+                    <li><a href="#">Service</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Learn More</a></li>
+                </ul>
+        </div>
+
+    </div>
+
+</footer>
+
 
 </body>
 </html>
