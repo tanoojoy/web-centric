@@ -7,10 +7,6 @@
         exit();
     }
 
-    if(!isset($_SESSION['username'])){
-        header("Location: profile.php");
-        exit();
-    }
     // echo 'tanoo';
     //fetch page configurations
     include("backend/config.php");
