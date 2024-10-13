@@ -26,11 +26,7 @@ function search_jobs($keyword = null, $location = null, $emp_type =  null, $expi
 
     if ($jobpostings->num_rows > 0) { // Check if any records were found
         while($row = $jobpostings->fetch_assoc()) {  //store the SQL row in a variable $row
-            $job_title = $row['title'];
-            $job_description = $row['description'];
-            $job_location = $row['location'];
-            $company_name = $row['company_name'];
-
+            
             $job = [
                 'job_title'       => $row['title'],
                 'job_description' => $row['description'],
@@ -52,6 +48,23 @@ function search_jobs($keyword = null, $location = null, $emp_type =  null, $expi
     }
 
     return $reponse;
+}
+
+function get_skills(){
+    $sql = "SELECT skill_name FROM `skills` WHERE 1";
+    
+    $skills = $GLOBALS['conn']->query($sql);
+    
+    if ($skills->num_rows > 0) { // Check if any records were found
+        $list = [];
+        while($row = $skills->fetch_assoc()) { 
+            array_push($list, $row['skill_name']);
+        }
+    } else {
+        echo "No skills found";
+    }
+    
+    return $list;
 }
 
 ?>

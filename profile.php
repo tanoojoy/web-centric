@@ -11,20 +11,8 @@
         
         //fetch page configurations
         include("backend/config.php");
+        include("backend/functions.php");
     }
-
-    //get skills
-    $sql = "SELECT skill_name FROM `skills` WHERE 1";
-
-    $skills = $conn-query($sql);
-    $list = [];
-    if ($skills->num_rows > 0) { // Check if any records were found
-        while($row = $skills->fetch_assoc()) { 
-            array_push($list, $row['skill_name']);
-        }
-    }
-
-    $conn->close();
 
 ?>
 
@@ -118,8 +106,9 @@
             <label for="skills"><strong>Skills:</strong></label>
             <select name="skills" id="skills" multiple>
                 <?php
+                    $list = get_skills();
                     foreach($list as $skill){
-                        echo "<option value=\"" . $skill['skill_name'] . "\">".$skill['skill_name'] . "</option>";
+                        echo "<option value=\"" . $skill . "\">".$skill . "</option>";
                     }
                 ?>
             </select>
