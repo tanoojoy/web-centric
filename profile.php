@@ -12,6 +12,20 @@
         //fetch page configurations
         include("backend/config.php");
     }
+
+    //get skills
+    $sql = "SELECT skill_name FROM `skills` WHERE 1";
+
+    $skills = $conn-query($sql);
+    $list = [];
+    if ($skills->num_rows > 0) { // Check if any records were found
+        while($row = $skills->fetch_assoc()) { 
+            array_push($list, $row['skill_name']);
+        }
+    }
+
+    $conn->close();
+
 ?>
 
 <!DOCTYPE html>
@@ -30,7 +44,7 @@
     <nav>
         <div class="logo">Talent<b>Hub</b></div>
         <ul class="links">
-            <li><a href="/web-centric/homepage.php">Home</a></li>
+            <li><a href="homepage.php">Home</a></li>
             <li><a href="#">Network</a></li>
             <li><a href="#">Work</a></li>
             <li><a href="#">Jobs</a></li>
@@ -38,12 +52,10 @@
             <li><a href="#">Notifications</a></li>
             <li><a href="#">Profile</a></li>
         </ul>
-
         <div class="logout">
-        <form action="backend/logout.php" method="POST" class="logout-form">
-              <input type="hidden" name="logout" value="true">
+            <form action="backend/logout.php" method="POST">
                 <button type="submit" class="logout-btn">
-                    <img src="img/logoutButton.png" alt="Logout" class="logout-icon">
+                    <img src="img/logoutButton.png" alt="Logout" class="logout-icon"> <b> Logout </b>
                 </button>
             </form>
         </div>
@@ -104,7 +116,13 @@
             <input type="text" name="education" id="education">
 
             <label for="skills"><strong>Skills:</strong></label>
-            <input type="text" name="skills" id="skills">
+            <select name="skills" id="skills" multiple>
+                <?php
+                    foreach($list as $skill){
+                        echo "<option value=\"" . $skill['skill_name'] . "\">".$skill['skill_name'] . "</option>";
+                    }
+                ?>
+            </select>
 
             <label for="profile_visibility"><strong>Profile Visibility:</strong></label>
             <select name="profile_visibility" id="profile_visibility">
