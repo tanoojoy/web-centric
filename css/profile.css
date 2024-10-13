@@ -83,14 +83,16 @@ nav .links  a {
     background-color:#ccb8b7; 
 }
 
+
 .profile-container {
     max-width: 900px;
     margin: 100px auto;
-    background-color: rgba(255, 255, 255, 0.3); 
+    background-color:rgba(68, 37, 37, 0.3); 
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8); 
 }
+
 
 .profile-pic-section {
     text-align: center;
@@ -247,3 +249,69 @@ nav .links  a {
   }
 }
 
+/* footer*/
+
+.footer{
+    background-color:#111;
+
+}
+
+.footerContainer{
+    width:100%;
+    padding:20px 20px 10px;
+    background-image: linear-gradient(rgba(243,129,129,.9), rgba(252,227,138,.9));
+    position:absolute;
+}
+
+
+.socialIcons{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+}
+
+.socialIcon a{
+    text-decoration:none;
+    padding:10px;
+    background-color:white;
+    margin:10px;
+    border-radius:50%;
+}
+
+.socialIcons a i{
+    font-size:2em;
+    color:black;
+    opacity:0.9;
+    
+}
+
+.socialIcons a:hover{
+    background-color:#111;
+    transition:0.5s;
+}
+
+.socialIcons a:hover i{
+    color:white;
+    transition:0.5;
+}
+
+.footer-Nav ul{
+    display:flex;
+    justify-content:center;
+    list-style-type:none;
+}
+
+.footer-Nav ul li a{
+    color:white;
+    margin:20px;
+    text-decoration:none;
+    font-size:1.3em;
+    opacity:0.7;
+    transition:0.5s;
+}
+
+
+.footer-Nav ul li a:hover{
+    opacity:1;
+
+}
