@@ -52,7 +52,7 @@
 <div class="profile-container">
     <form action="backend/update_profile.php" method="POST" enctype="multipart/form-data">
         <div class="profile-pic-section">
-            <img src="img/capy.jpeg" alt="Profile Picture" class="profile-pic">
+            <img src="img/cat.webp" alt="Profile Picture" class="profile-pic">
         </div>
 
         <div class="changeOption">

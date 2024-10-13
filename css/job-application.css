@@ -1,0 +1,98 @@
+/* General Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Description Section */
+.Description {
+    background-color:white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    margin: 40px auto;
+}
+
+/* Job Description Header */
+.Description h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* Paragraph Styling */
+.Description p {
+    color: #666;
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+/* Unordered List Styling */
+.Description ul {
+    color: #666;
+    font-size: 16px;
+    margin-left: 20px;
+    
+}
+
+
+
+/* Application Form Section */
+.application {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin-top: 40px;
+    
+}
+
+.application h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+    text-align:center;
+}
+
+/* File Input Styling */
+input[type="file"] {
+    font-size: 16px;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Submit Button Styling */
+input[type="submit"] {
+    background-color: #24242f;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color:  #101015;
+}
+
+
+.center-form {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+
+}
