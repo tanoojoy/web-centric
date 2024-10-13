@@ -2,17 +2,21 @@
     session_start();
 
     // Check if the user is logged in
-    if (!isset($_SESSION['username'])) {
+    if (!isset($_SESSION['user_id'])) {
         header("Location: index.php");
         exit();
     }
-    else{
-        $username = $_SESSION['username'];
-        
-        //fetch page configurations
-        include("backend/config.php");
-        include("backend/functions.php");
+
+    if(!isset($_SESSION['username'])){
+        header("Location: profile.php");
+        exit();
     }
+    // echo 'tanoo';
+    //fetch page configurations
+    include("backend/config.php");
+    include("backend/functions.php");
+
+    $username = $_SESSION['username'];
 
 ?>
 
@@ -52,7 +56,7 @@
 
 
 <div class="profile-container">
-    <form action="test.php" method="POST">
+    <form action="backend/update_profile.php" method="POST">
         <div class="profile-pic-section">
             <img src="img/capy.jpeg" alt="Profile Picture" class="profile-pic">
         </div>
@@ -62,6 +66,10 @@
         </div>
 
         <div class="profile-info">
+
+            <label class="fname" for="username"><strong>Username:</strong></label>
+            <input type="text" name="username" id="userame" required>
+
             <label class="fname" for="first_name"><strong>First Name:</strong></label>
             <input type="text" name="first_name" id="first_name" required>
 

@@ -9,7 +9,7 @@ $pass = $_POST['password'];  //bhurtun
 $hashed_pass = password_hash($pass, PASSWORD_BCRYPT);
 
 //get that user's data from DB
-$sql = "SELECT user_id, username, password FROM test_login WHERE username='$user'";
+$sql = "SELECT user_id, username, email, password FROM users WHERE email='$user'";
 
 $result = $conn->query($sql);
 
@@ -19,7 +19,8 @@ if ($result->num_rows > 0) { // Check if any records were found
         if($match){
             $conn->close();
             session_start(); 
-            $_SESSION["username"] = $row['username']; 
+            $_SESSION["user_id"] = $row['user_id']; 
+            $_SESSION["username"] = $row['username'];
 
             header("Location: ../homepage.php");
             exit();

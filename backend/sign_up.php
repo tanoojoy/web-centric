@@ -1,28 +1,34 @@
 <?php
 include("connectDB.php");
 
-//Get form input
-$user = $_POST['username'];     //tejal@uom.com
-$pass = $_POST['password'];  //tejal
+// Get form input
+$user = $_POST['username'];  // Example: tejal@uom.com
+$pass = $_POST['password'];  // Example: tejal
 
-//Hash the password
+// Hash the password
 $hashed_pass = password_hash($pass, PASSWORD_BCRYPT);
 
-// Insert into database
-$sql = "INSERT INTO test_login (user_id, username, password) VALUES (UUID(), '$user', '$hashed_pass')";
+$sql = "INSERT INTO users (user_id, email, password) VALUES (UUID(), '$user', '$hashed_pass')";
+$result = $conn->query($sql);
 
-if ($conn->query($sql) === TRUE) {
-   
-   $conn->close();
-   session_start(); 
-   
-   $_SESSION['username'] = $user; 
-   header("Location: ../homepage.php");
-   
+// Check if the insert was successful
+if ($result === TRUE) {
+    
+    $sql = "SELECT `user_id`, `username` FROM `users` WHERE `email`='$user'";
+    $response = $conn->query($sql);
+    $row = $response->fetch_assoc();
+
+    session_start();
+    $_SESSION['user_id'] = $row['user_id'];
+   //  $_SESSION['username'] = $row['username'];
+    
+    // Redirect to homepage
+    header("Location: ../homepage.php");
+    exit();
 } else {
-   echo "Error: " . $sql . "<br>" . $conn->error;
+    // Handle errors during insertion
+    echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
-// Close connection
-
+$conn->close();
 ?>
