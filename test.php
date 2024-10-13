@@ -1,59 +1,38 @@
 <?php
-    session_start();
-    $id = $_SESSION['user_id'];
+include("backend/connectDB.php");
+session_start();
+$profile = get_user_profile($_SESSION['user_id']);
+// $profile = get_user_profile('5ba060aa-896f-11ef-aa5d-acde48001122');
 
-    // echo $id;
-    include("backend/connectDB.php");
+echo $profile['location'];
+
+function get_user_profile($id){
+    $sql = "SELECT * FROM `users` WHERE `user_id`= '$id'";
     
-    // Get form input
-    $username = $_POST['username'];
-    $fname = $_POST['first_name'];  //rhea
-    $lname = $_POST['last_name'];  //bhurtun
-    $email = $_POST['email'];
-    $headline = $_POST['headline'];
-    $summary = $_POST['summary'];
-    $location = $_POST['location'];
-    $industry = $_POST['industry'];
-    $education = $_POST['education'];
-    $current_position = $_POST['current_position'];
-    $current_company = $_POST['current_companny'];
-    $skills = [
-        'skill_ids' => []
-    ];
-    foreach($_POST['skills'] as $skill){
-        array_push($skills['skill_ids'], (int)$skill);
+    $user = $GLOBALS['conn']->query($sql);
+    $profile = [];
+    if ($user->num_rows > 0) { // Check if any records were found
+        $row = $user->fetch_assoc();
+        $profile = [
+            'first_name' => $row['first_name'],
+            'last_name' => $row['last_name'],
+            'headline' => $row['headline'],
+            'summary' => $row['summary'],
+            'location' => $row['location'],
+            'current_position' => $row['current_position'],
+            'current_company' => $row['current_company'],
+            'connections_count' => $row['connections_count']
+        ];
+        
+    } else {
+        echo "Fuck up";
     }
 
-    $skills = json_encode($skills);
+    $GLOBALS['conn']->close();
     
-    // echo json_encode($skills);
+    return $profile;
+}
 
-    $sql = "UPDATE `users` 
-            SET 
-                `username` = '$username', 
-                `first_name` = '$fname', 
-                `last_name` = '$lname', 
-                `email` = '$email',  
-                -- `profile_picture` = 'profile-pi.jpg', 
-                `headline` = '$headline', 
-                `summary` = '$summary', 
-                `location` = '$location', 
-                `industry` = '$industry', 
-                `current_position` = '$current_position', 
-                `current_company` = '$current_company', 
-                `education` = '$education', 
-                `skills` = '$skills', 
-                `connections_count` = 2, 
-                `profile_visibility` = 'public'
-            WHERE `user_id` = '$id';
-            ";
-    $result = $conn->query($sql);
 
-    $_SESSION['username'] = $username;
-
-    $conn->close();
-
-    header("Location: ../homepage.php");
-    exit();
 
 ?>

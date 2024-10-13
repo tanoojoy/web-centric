@@ -17,6 +17,8 @@
     include("backend/functions.php");
 
     $username = $_SESSION['username'];
+    
+    // echo $profile;
 
 ?>
 
@@ -66,48 +68,50 @@
         </div>
 
         <div class="profile-info">
-
+            <?php
+                $profile = get_user_profile($_SESSION['user_id']);
+            ?>
             <label class="fname" for="username"><strong>Username:</strong></label>
-            <input type="text" name="username" id="userame" required>
+            <input type="text" name="username" id="userame" value = "<?php echo $profile['username']; ?>"required>
 
             <label class="fname" for="first_name"><strong>First Name:</strong></label>
-            <input type="text" name="first_name" id="first_name" required>
+            <input type="text" name="first_name" id="first_name" value = "<?php echo $profile['first_name']; ?> "required>
 
             <label class="lname" for="last_name"><strong>Last Name:</strong></label>
-            <input type="text" name="last_name" id="last_name" required>
+            <input type="text" name="last_name" id="last_name"  value = "<?php echo $profile['last_name']; ?>"required>
 
             <label class="email" for="email"><strong>Email:</strong></label>
-            <input type="email" name="email" id="email" required>
+            <input type="email" name="email" id="email" value = "<?php echo $profile['email']; ?>"required>
 
             <label for="headline"><strong>Headline:</strong></label>
-            <input type="text" name="headline" id="headline" >
+            <input type="text" name="headline" id="headline" value = "<?php echo $profile['headline']; ?>" >
 
             <label for="summary"><strong>Summary:</strong></label>
-            <textarea name="summary" id="summary" rows="4"></textarea>
+            <textarea name="summary" id="summary" rows="4"><?php echo $profile['summary']; ?></textarea>
 
             <label for="location"><strong>Location:</strong></label>
             <select name="location" id="location">
-                <option value="North">North</option>
-                <option value="South">South</option>
-                <option value="East">East</option>
-                <option value="West">West</option>
+                <option <?php if($profile['location'] == "North"){ echo "selected"; } ?> value="North">North</option>
+                <option <?php if($profile['location'] == "South"){ echo "selected"; } ?> value="South">South</option>
+                <option <?php if($profile['location'] == "East"){ echo "selected"; } ?> value="East">East</option>
+                <option <?php if($profile['location'] == "West"){ echo "selected"; } ?> value="West">West</option>
             </select>
            
             <label for="industry"><strong>Levelndustry:</strong></label>
             <select name="industry" id="industry">
-                <option value="Information and Technology">Information and Technology</option>
-                <option value="Finance">Fianance</option>
-                <option value="Healthcare">Healthcare</option>
-                <option value="Sales">Sales</option>
-                <option value="Marketing">Marketing</option>
-                <option value="Education">Education</option>
+                <option <?php if($profile['industry'] == "Information and Technology"){ echo "selected"; } ?> value="Information and Technology">Information and Technology</option>
+                <option <?php if($profile['industry'] == "Fianance"){ echo "selected"; } ?> value="Finance">Fianance</option>
+                <option <?php if($profile['industry'] == "Healthcare"){ echo "selected"; } ?> value="Healthcare">Healthcare</option>
+                <option <?php if($profile['industry'] == "Sales"){ echo "selected"; } ?> value="Sales">Sales</option>
+                <option <?php if($profile['industry'] == "Marketing"){ echo "selected"; } ?> value="Marketing">Marketing</option>
+                <option <?php if($profile['industry'] == "Education"){ echo "selected"; } ?> value="Education">Education</option>
             </select>
 
             <label for="current_position"><strong>Current Position:</strong></label>
-            <input type="text" name="current_position" id="current_position">
+            <input type="text" name="current_position" id="current_position" value = "<?php echo $profile['current_position']; ?>">
 
             <label for="current_company"><strong>Current Company:</strong></label>
-            <input type="text" name="current_company" id="current_company">
+            <input type="text" name="current_company" id="current_company" value = "<?php echo $profile['current_company']; ?>">
         
             
             <div class="education">
@@ -156,7 +160,9 @@
             <label for="skills"><strong>Skills:</strong></label>
             <select name="skills[]" id="skills" multiple>
                 <?php
+                    //fetch skills from db
                     $list = get_skills();
+                    //loop through each skill
                     foreach($list as $key=>$skill){
                         echo "<option value=\"" . $key + 1 . "\">".$skill . "</option>";
                     }

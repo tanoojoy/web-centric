@@ -67,20 +67,30 @@ function get_skills(){
     return $list;
 }
 
-function get_education(){
-    $sql = "SELECT skill_name FROM `skills` WHERE 1";
+function get_user_profile($id){
+    $sql = "SELECT * FROM `users` WHERE `user_id`= '$id'";
     
-    $skills = $GLOBALS['conn']->query($sql);
-    
-    if ($skills->num_rows > 0) { // Check if any records were found
-        $list = [];
-        while($row = $skills->fetch_assoc()) { 
-            array_push($list, $row['skill_name']);
-        }
+    $user = $GLOBALS['conn']->query($sql);
+    $profile = [];
+    if ($user->num_rows > 0) { // Check if any records were found
+        $row = $user->fetch_assoc();
+        $profile = [
+            'username' => $row['username'],
+            'email' => $row['email'],
+            'first_name' => $row['first_name'],
+            'last_name' => $row['last_name'],
+            'headline' => $row['headline'],
+            'summary' => $row['summary'],
+            'location' => $row['location'],
+            'current_position' => $row['current_position'],
+            'current_company' => $row['current_company'],
+            'connections_count' => $row['connections_count']
+        ];
+        
     } else {
-        echo "No skills found";
+        $profile = NULL;
     }
     
-    return $list;
+    return $profile;
 }
 ?>
