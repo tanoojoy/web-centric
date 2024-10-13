@@ -85,7 +85,7 @@
                 <li><a href="#">Dashboard</a></li>
                 <li><a href="#">My Jobs</a></li>
                 <li><a href="#">Saved Jobs</a></li>
-                <li><a href="#">Career Advice</a></li>
+                <li><a href="https://www.indeed.com/career-advice">Career Advice</a></li>
                 <li><a href="#">Settings</a></li>
             </ul>
         </aside>

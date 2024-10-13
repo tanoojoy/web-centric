@@ -37,12 +37,13 @@
             <li><a href="#">Profile</a></li>
         </ul>
         <div class="logout">
-            <form action="backend/logout.php" method="POST">
-                <button type="submit" class="logout-btn">
-                    <img src="img/logoutButton.png" alt="Logout" class="logout-icon"> <b> Logout </b>
-                </button>
-            </form>
-        </div>
+            <form action="backend/logout.php" method="POST" class="logout-form">
+                <input type="hidden" name="logout" value="true">
+                    <button type="submit" class="logout-btn">
+                        <img src="img/logoutButton.png" alt="Logout" class="logout-icon">
+                    </button>
+                </form>
+            </div>
     </nav>
 </header>
 

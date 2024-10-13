@@ -28,11 +28,7 @@
     <nav>
         <div class="logo">Talent<b>Hub</b></div>
         <ul class="links">
-<<<<<<< Updated upstream
-            <li><a href="homepage.php">Home</a></li>
-=======
             <li><a href="/web-centric/homepage.php">Home</a></li>
->>>>>>> Stashed changes
             <li><a href="#">Network</a></li>
             <li><a href="#">Work</a></li>
             <li><a href="#">Jobs</a></li>
@@ -40,10 +36,12 @@
             <li><a href="#">Notifications</a></li>
             <li><a href="#">Profile</a></li>
         </ul>
+
         <div class="logout">
-            <form action="backend/logout.php" method="POST">
+        <form action="backend/logout.php" method="POST" class="logout-form">
+              <input type="hidden" name="logout" value="true">
                 <button type="submit" class="logout-btn">
-                    <img src="img/logoutButton.png" alt="Logout" class="logout-icon"> <b> Logout </b>
+                    <img src="img/logoutButton.png" alt="Logout" class="logout-icon">
                 </button>
             </form>
         </div>
