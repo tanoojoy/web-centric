@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>About Us Page</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <style>
           *{
@@ -83,6 +83,7 @@
           text-align:center;
           box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
           background-color:rgba(68, 37, 37, 0.3);
+          margin-right:2px;
         }
 
         .about-content h2{
@@ -158,6 +159,7 @@
     padding:20px 20px 10px;
     background-image: linear-gradient(rgba(243,129,129,.9), rgba(252,227,138,.9));
     position:absolute;
+
 }
 
 
@@ -217,7 +219,7 @@
 
 </head>
 <body>
-  
+
 
     <div class="heading">
       <h1>About Us</h1>
