@@ -1,25 +1,35 @@
 <?php
     include("backend/connectDB.php");
-    // get skills
-    $sql = "SELECT skill_name FROM `skills` WHERE 1";
     
-    $skills = $GLOBALS['conn']->query($sql);
-    
-    if ($skills->num_rows > 0) { // Check if any records were found
-        $list = [];
-        while($row = $skills->fetch_assoc()) { 
-            array_push($list, $row['skill_name']);
-        }
-        //print_r($list);  // Or echo json_encode($list); if you want a JSON response
-    } else {
-        echo "No skills found";
+    // Get form input
+    $fname = $_POST['first_name'];  //rhea
+    $lname = $_POST['last_name'];  //bhurtun
+    $email = $_POST['email'];
+    $headline = $_POST['headline'];
+    $summary = $_POST['summary'];
+    $location = $_POST['location'];
+    $industry = $_POST['industry'];
+    $education = $_POST['education'];
+    $current_position = $_POST['current_position'];
+    $current_company = $_POST['current_companny'];
+    $skills = [
+        'skill_ids' => []
+    ];
+    foreach($_POST['skills'] as $skill){
+        array_push($skills['skill_ids'], (int)$skill);
     }
-    
-    $GLOBALS['conn']->close(); // Close the connection
 
-    foreach($list as $skill){
-        echo $skill;
-    }
+    $skills = json_encode($skills);
     
+    // echo json_encode($skills);
+
+    $sql = "INSERT INTO `users`(`user_id`, `username`, `first_name`, `last_name`, `email`, `password`, `profile_picture`, `headline`, `summary`, `location`, `industry`, `current_position`, `current_company`, `education`, `skills`, `connections_count`, `profile_visibility`) 
+    VALUES ('3','tanoojoy','$fname','$lname','$email','password','profile-pi.jpg','$headline', '$summary','$location','$industry','$current_position','$current_company','$education','$skills', 2 ,'public')";
+    
+    $result = $conn->query($sql);
+
+    // echo $sql;
+
+    // $conn->close();
 
 ?>

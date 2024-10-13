@@ -52,7 +52,7 @@
 
 
 <div class="profile-container">
-    <form action="backend/update_profile.php" method="POST" enctype="multipart/form-data">
+    <form action="test.php" method="POST">
         <div class="profile-pic-section">
             <img src="img/capy.jpeg" alt="Profile Picture" class="profile-pic">
         </div>
@@ -85,7 +85,7 @@
                 <option value="West">West</option>
             </select>
            
-            <label for="industry"><strong>Industry:</strong></label>
+            <label for="industry"><strong>Levelndustry:</strong></label>
             <select name="industry" id="industry">
                 <option value="Information and Technology">Information and Technology</option>
                 <option value="Finance">Fianance</option>
@@ -146,11 +146,11 @@
 
 
             <label for="skills"><strong>Skills:</strong></label>
-            <select name="skills" id="skills" multiple>
+            <select name="skills[]" id="skills" multiple>
                 <?php
                     $list = get_skills();
-                    foreach($list as $skill){
-                        echo "<option value=\"" . $skill . "\">".$skill . "</option>";
+                    foreach($list as $key=>$skill){
+                        echo "<option value=\"" . $key + 1 . "\">".$skill . "</option>";
                     }
                 ?>
             </select>
@@ -167,8 +167,6 @@
         </div>
     </form>
 </div>
-
-
 <footer>
     <div class="footerContainer">
         <div class="socialIcons">
@@ -187,10 +185,7 @@
                     <li><a href="#">Learn More</a></li>
                 </ul>
         </div>
-
     </div>
-
 </footer>
-
 </body>
 </html>

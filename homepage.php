@@ -5,15 +5,13 @@
     if (!isset($_SESSION['username'])) {
         header("Location: index.php");
         exit();
-    }
-    else{
-        $username = $_SESSION['username'];
-        // echo 'tanoo';
-        //fetch page configurations
-        include("backend/config.php");
-        include("backend/functions.php");
-        // include("backend/logout.php");
-    }
+    }  
+    // echo 'tanoo';
+    //fetch page configurations
+    include("backend/config.php");
+    include("backend/functions.php");
+
+    $username = $_SESSION['username'];
 
 ?>
 
@@ -28,8 +26,6 @@
 
 </head>
 <body>
-
-    <?php echo $username; ?>
     <!-- Navigation Bar -->
     <header>
         <nav>
@@ -41,9 +37,7 @@
                         <img src="img/searchButton.png" alt="Search Icon" />
                         </button>
                     </form>
-        </div>
-
-
+            </div>
             <div>
                 <ul class="links">
                     <li><a href="homepage.php">Home</a></li>
@@ -55,8 +49,6 @@
                     <li><a href="profile.php">Profile</a></li>
                 </ul>
             </div>
-
-
             <div class="logout">
                 <form action="backend/logout.php" method="POST" class="logout-form">
                     <input type="hidden" name="logout" value="true">
@@ -64,10 +56,7 @@
                             <img src="img/logoutButton.png" alt="Logout" class="logout-icon"> 
                         </button>
                 </form>
-        </div>
-
-
-            
+            </div>  
         </nav>
     </header>
 
@@ -107,8 +96,6 @@
             ?>
         </section>
     </div>
-
-
 <footer>
     <div class="footerContainer">
         <div class="socialIcons">
@@ -120,17 +107,14 @@
         </div>
 
         <div class="footer-Nav">
-                <ul>
-                    <li><a href="#">Service</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Learn More</a></li>
-                </ul>
+            <ul>
+                <li><a href="#">Service</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Learn More</a></li>
+            </ul>
         </div>
-
     </div>
-
 </footer>
-
 </body>
 </html>
