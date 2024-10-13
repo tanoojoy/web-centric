@@ -69,6 +69,8 @@
           height:auto;
           display:block;
           transition:0.5s ease;
+          position:fixed;
+          bottom:70px;
         }
 
         .about-image:hover img{
@@ -79,12 +81,15 @@
           margin-left:50px;
           flex:1;
           text-align:center;
+          box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+          background-color:rgba(68, 37, 37, 0.3);
         }
 
         .about-content h2{
           font-size: 23px;
           margin-bottom:15px;
           color:#333;
+          margin-top:50px;
         }
 
         .about-content p{
@@ -103,6 +108,7 @@
           border-radius:25px;
           margin-top:15px;
           transition:0.3s ease;
+          margin-bottom:30px;
         }
 
         .about-content .read-more:hover{
