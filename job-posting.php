@@ -2,18 +2,21 @@
     session_start();
 
     // Check if the user is logged in
-    if (!isset($_SESSION['username'])) {
+    if (!isset($_SESSION['user_id'])) {
         header("Location: index.php");
         exit();
     }
-    else{
-        $username = $_SESSION['username'];
-        // echo 'tanoo';
-        //fetch page configurations
-        include("backend/config.php");
-        include("backend/functions.php");
-        // include("backend/logout.php");
+
+    if(!isset($_SESSION['username'])){
+        header("Location: profile.php");
+        exit();
     }
+    // echo 'tanoo';
+    //fetch page configurations
+    include("backend/config.php");
+    include("backend/functions.php");
+
+    $username = $_SESSION['username'];
 
 ?>
 
@@ -39,7 +42,7 @@
             <div class="logo">Talent<b>Hub</b></div>
             <div class="search-bar">
                     <form action="search_results.php" method="post" class="form">
-                        <input type="text" name="keyword" placeholder="Search for jobs, companies..." required>
+                        <input type="text" name="keyword" placeholder="Search for jobs, companies...">
                         <button type="submit">
                         <img src="img/searchButton.png" alt="Search Icon" />
                         </button>
@@ -89,6 +92,7 @@
                 <li><a href="#">Saved Jobs</a></li>
                 <li><a href="https://www.indeed.com/career-advice">Career Advice</a></li>
                 <li><a href="#">Settings</a></li>
+                <li><a href="job-posting.php">Create Job posting</a></li>   
             </ul>
         </aside>
 
@@ -98,46 +102,41 @@
         <div class="Job-posting">
                 <h2>Job Posting</h2>
         </div>
-        <form action="" >
-    
+        <form action="backend/create_posting.php" method="POST" >
+            <div class="profile-info">
+                <label class="title" for="title"><strong>Job title:</strong></label>
+                <input type="text" name="title" id="title" required>
 
-        <div class="profile-info">
-            <label class="title" for="title"><strong>Job title:</strong></label>
-            <input type="text" name="title" id="title" required>
+                <label class="Description" for="Description"><strong>Description:</strong></label>
+                <input type="Description" name="Description" id="Description" required>
 
+                <label for="location"><strong>Location:</strong></label>
+                <select name="location" id="location">
+                    <option value="North">North</option>
+                    <option value="South">South</option>
+                    <option value="East">East</option>
+                    <option value="West">West</option>
+                </select>
+            
+                <label for="type"><strong>Employment type:</strong></label>
+                <select name="type" id="type">
+                    <option value="Full-Time">Full-Time</option>
+                    <option value="Part-Time">Part-Time</option>
+                </select>
 
-            <label class="Description" for="Description"><strong>Description:</strong></label>
-            <input type="Description" name="Description" id="Description" required>
-
-        
-
-            <label for="location"><strong>Location:</strong></label>
-            <select name="loaction" id="location">
-                <option value="North">North</option>
-                <option value="South">South</option>
-                <option value="East">East</option>
-                <option value="West">West</option>
-            </select>
-           
-            <label for="type"><strong>Employment type:</strong></label>
-            <select name="type" id="type">
-                <option value="Full-Time">Full-Time</option>
-                <option value="Part-Time">Part-Time</option>
-            </select>
-
-            <label for="start date"><strong>Posted Date:</strong></label>
-            <input type="date" id="start date" name="school-start" value="2024-10-13" min="2000-01-01" max="2025-01-01" />
+                <label for="start date"><strong>Posted Date:</strong></label>
+                <input type="date" id="start date" name="school-start" value="2024-10-13" min="2000-01-01" max="2025-01-01" />
 
 
-            <label for="end date"><strong>Expiry Date:</strong></label>
-            <input type="date" id="end date" name="school-end" value="2024-10-13" min="2000-01-01" max="2025-01-01" />
+                <label for="end date"><strong>Expiry Date:</strong></label>
+                <input type="date" id="end date" name="school-end" value="2024-10-13" min="2000-01-01" max="2025-01-01" />
 
-           
-        </div>
+            
+            </div>
 
-        <div class="submit-section">
-            <button type="submit" class="submit-btn">Post</button>
-        </div>
+            <div class="submit-section">
+                <button type="submit" class="submit-btn">Post</button>
+            </div>
          </form> 
     
        </div>

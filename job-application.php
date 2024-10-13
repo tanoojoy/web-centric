@@ -2,18 +2,21 @@
     session_start();
 
     // Check if the user is logged in
-    if (!isset($_SESSION['username'])) {
+    if (!isset($_SESSION['user_id'])) {
         header("Location: index.php");
         exit();
     }
-    else{
-        $username = $_SESSION['username'];
-        // echo 'tanoo';
-        //fetch page configurations
-        include("backend/config.php");
-        include("backend/functions.php");
-        // include("backend/logout.php");
+
+    if(!isset($_SESSION['username'])){
+        header("Location: profile.php");
+        exit();
     }
+    // echo 'tanoo';
+    //fetch page configurations
+    include("backend/config.php");
+    include("backend/functions.php");
+
+    $username = $_SESSION['username'];
 
 ?>
 
@@ -39,7 +42,7 @@
             <div class="logo">Talent<b>Hub</b></div>
             <div class="search-bar">
                     <form action="search_results.php" method="post" class="form">
-                        <input type="text" name="keyword" placeholder="Search for jobs, companies..." required>
+                        <input type="text" name="keyword" placeholder="Search for jobs, companies...">
                         <button type="submit">
                         <img src="img/searchButton.png" alt="Search Icon" />
                         </button>

@@ -90,6 +90,7 @@
                 <li><a href="#">Saved Jobs</a></li>
                 <li><a href="https://www.indeed.com/career-advice">Career Advice</a></li>
                 <li><a href="#">Settings</a></li>
+                <li><a href="job-posting.php">Create Job posting</a></li>   
             </ul>
         </aside>
 

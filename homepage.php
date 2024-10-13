@@ -37,7 +37,7 @@
             <div class="logo">Talent<b>Hub</b></div>
             <div class="search-bar">
                     <form action="search_results.php" method="post" class="form">
-                        <input type="text" name="keyword" placeholder="Search for jobs, companies..." required>
+                        <input type="text" name="keyword" placeholder="Search for jobs, companies...">
                         <button type="submit">
                         <img src="img/searchButton.png" alt="Search Icon" />
                         </button>
@@ -52,6 +52,7 @@
                     <li><a href="#">Messages</a></li>
                     <li><a href="#">Notifications</a></li>
                     <li><a href="profile.php">Profile</a></li>
+                    
                 </ul>
             </div>
             <div class="logout">
@@ -80,6 +81,7 @@
                 <li><a href="#">Saved Jobs</a></li>
                 <li><a href="https://www.indeed.com/career-advice">Career Advice</a></li>
                 <li><a href="#">Settings</a></li>
+                <li><a href="job-posting.php">Create Job posting</a></li>   
             </ul>
         </aside>
 
