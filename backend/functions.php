@@ -81,7 +81,7 @@ function get_user_profile($id){
             'last_name' => $row['last_name'],
             'headline' => $row['headline'],
             'summary' => $row['summary'],
-            'inndustry' => $row['industry'],
+            'industry' => $row['industry'],
             'location' => $row['location'],
             'current_position' => $row['current_position'],
             'current_company' => $row['current_company'],
