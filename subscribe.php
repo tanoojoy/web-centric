@@ -13,6 +13,7 @@
     include("backend/functions.php");
 
     $username = $_SESSION['username'];
+    $userid = $_SESSION['user_id'];
 
 ?>
 <!DOCTYPE html>

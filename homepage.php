@@ -16,7 +16,7 @@
     include("backend/config.php");
     include("backend/functions.php");
 
-    $username = $_SESSION['username'];
+    $userid = $_SESSION['user_id'];
 
 ?>
 
@@ -31,14 +31,16 @@
 
 </head>
 <body>
+    <!-- Navigation Bar -->
     <?php 
         get_header();
     ?>
 
     <!-- Main Container -->
     <div class="container">
+        <!-- Sidebar -->
         <?php 
-            get_sidebar($username);
+            get_sidebar($userid);
         ?>
 
         <!-- Main Feed -->

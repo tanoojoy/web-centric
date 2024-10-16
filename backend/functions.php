@@ -133,13 +133,15 @@ function get_header(){
             </header>";
 }
 
-function get_sidebar($username){
+function get_sidebar($id){
+    $profile = get_user_profile($id);
+
     echo '<!-- Sidebar -->
             <aside class="sidebar">
             <div class="profile-summary">
                 <img src="img/capy.jpeg" alt="Profile Picture" class="profile-pic">
-                <h3>'. $username .'</h3>
-                <p>Software Developer at ABC Corp</p>
+                <h3>'. $profile['username'] .'</h3>
+                <p>'. $profile['current_position'] .' at '. $profile['current_company'] .'</p>
             </div>
             <ul class="sidebar-links">
                 <li><a href="#">Dashboard</a></li>

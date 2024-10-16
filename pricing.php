@@ -16,7 +16,7 @@
     include("backend/config.php");
     include("backend/functions.php");
 
-    $username = $_SESSION['username'];
+    $userid = $_SESSION['user_id'];
 ?>
 
  
@@ -29,15 +29,27 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/pricing.css">
+    <style>
+        .main-feed {
+            background-color: white;
+            box-shadow: 0 0 0 0;
+        }
+    </style>
 </head>
 <body>
+    <!-- Navigation Bar -->
     <?php
         get_header();
     ?>
+
+    <!-- Main Container -->
     <div class="container">
+        <!-- Sidebar -->
         <?php
-            get_sidebar($username);
+            get_sidebar($userid);
         ?>
+
+        <!-- Main Feed -->
         <div class="main-feed">
             <div class="grid">
                 <div class="mycard basic">
@@ -58,7 +70,7 @@
                     </div>
                     <form action="checkout.php" method="post">
                         <input type="hidden" name="tier" value="low">
-                        <input type="submit" class="btn btn-light btn-block" />
+                        <input type="submit" class="submit-btn" value="Subscribe"/>
                     </form>
                 </div>
                 <div class="mycard standard">
@@ -79,7 +91,7 @@
                     </div>
                     <form action="checkout.php" method="post">
                         <input type="hidden" name="tier" value="mid">
-                        <input type="submit" class="btn btn-light btn-block" >
+                        <input type="submit" class="submit-btn" value="Subscribe">
                     </form>
                 </div>
                 <div class="mycard premium">
@@ -100,7 +112,7 @@
                     </div>
                     <form action="checkout.php" method="post">
                         <input type="hidden" name="tier" value="high">
-                        <input type="submit" class="btn btn-light btn-block"/>
+                        <input type="submit" class="submit-btn" value="Subscribe"/>
                     </form>
                 </div>
             </div>

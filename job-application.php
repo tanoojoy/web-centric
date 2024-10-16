@@ -16,7 +16,7 @@
     include("backend/config.php");
     include("backend/functions.php");
 
-    $username = $_SESSION['username'];
+    $userid = $_SESSION['user_id'];
 
 ?>
 
@@ -31,6 +31,7 @@
     <link rel="stylesheet" href="css/job-application.css">
 </head>
 <body>
+    <!-- Navigation Bar -->
     <?php
         get_header();
     ?>
@@ -38,7 +39,7 @@
     <div class="container">
         <!-- Sidebar -->
         <?php
-            get_sidebar($username);
+            get_sidebar($userid);
         ?>
 
         <!-- Main Feed -->

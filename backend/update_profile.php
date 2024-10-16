@@ -16,7 +16,7 @@
     $industry = $_POST['industry'];
     $education = $_POST['education'];
     $current_position = $_POST['current_position'];
-    $current_company = $_POST['current_companny'];
+    $current_company = $_POST['current_company'];
     $skills = [
         'skill_ids' => []
     ];
