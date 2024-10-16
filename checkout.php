@@ -1,6 +1,8 @@
 <?php
-
+session_start();
 require_once 'vendor/autoload.php';
+include("backend/functions.php");
+
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 $key = $_ENV['stripe_key'];
@@ -25,6 +27,8 @@ foreach($get_subscriptions['data'] as $price){
     }
 }
 
+$user = get_user_profile($_SESSION['user_id']);
+
 $checkout_session = \Stripe\Checkout\Session::create([
     'line_items' => [[
         'price' => $price_id,
@@ -33,6 +37,7 @@ $checkout_session = \Stripe\Checkout\Session::create([
     'mode' => 'subscription',
     'success_url' => $YOUR_DOMAIN . '/success.php',
     'cancel_url' => $YOUR_DOMAIN . '/cancelled.php',
+    'customer_email' => $user['email']
 ]);
 
 header("HTTP/1.1 303 See Other");

@@ -135,12 +135,13 @@ nav .links  a {
 .sidebar {
     position: fixed; 
     width: 275px; 
-    height: calc(100vh - 80px); 
+    height: 100vh; 
     overflow-y: auto; 
     background-color: #dedcfa;
     padding: 20px;
     border-radius: 7px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+    margin-left: 10px;
 }
 
 .profile-pic {
@@ -241,13 +242,13 @@ a:visited {
 
 .job-post {
     padding: 15px;
-    border: 1px solid #ddd;
+    border: 1px solid #fadedc;
     margin-bottom: 15px;
     border-radius: 5px;
-    background-color:white;
+    background-color: #fadedc;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
     color:#5f4e4b;
-    background-color:rgba(214, 190, 190, 0.9);
+    /* background-color:rgba(214, 190, 190, 0.9); */
 }
 
 .job-post h3 {

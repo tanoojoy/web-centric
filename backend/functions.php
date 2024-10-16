@@ -126,6 +126,7 @@ function get_header(){
                             <input type=\"hidden\" name=\"logout\" value=\"true\">
                                 <button type=\"submit\" class=\"logout-btn\">
                                     <img src=\"img/logoutButton.png\" alt=\"Logout\" class=\"logout-icon\"> 
+                                    <p>Logout</p>
                                 </button>
                         </form>
                     </div>  

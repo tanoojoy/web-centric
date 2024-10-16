@@ -29,6 +29,12 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/job-application.css">
+    <style>
+        .main-feed {
+            background-color: white;
+            box-shadow: 0 0 0 0;
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation Bar -->
