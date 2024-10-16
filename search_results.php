@@ -19,8 +19,6 @@
     $username = $_SESSION['username'];
     $keyword = $_POST['keyword'];
 ?>
-
- 
 <!DOCTYPE html>
 <html lang="en">
 <head>
