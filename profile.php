@@ -20,7 +20,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $title; ?></title>
-    <link rel="stylesheet" href="css/profile.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/job-posting.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 </head>
@@ -29,7 +30,11 @@
     <?php
         get_header();
     ?>
-    <div class="profile-container">
+    <div class="container">
+        <?php
+            get_sidebar($username);
+        ?>
+        <div class="main-feed">
         <form action="backend/update_profile.php" method="POST">
             <div class="profile-pic-section">
                 <img src="img/capy.jpeg" alt="Profile Picture" class="profile-pic">
@@ -124,7 +129,7 @@
                     <label for="description"><strong>Decription:</strong></label>
                     <input type="text" name="description" id="description">
                 </div>
-                
+
                 <label for="skills"><strong>Skills:</strong></label>
                 <select name="skills[]" id="skills" multiple>
                     <?php
@@ -148,6 +153,8 @@
                 <button type="submit" class="submit-btn">Update Profile</button>
             </div>
         </form>
+        </div>
+        
     </div>
     <?php
         get_footer();
