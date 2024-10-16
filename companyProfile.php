@@ -25,29 +25,9 @@
 
 </head>
 <body>
-
-<header>
-    <nav>
-        <div class="logo">Talent<b>Hub</b></div>
-        <ul class="links">
-            <li><a href="homepage.php">Home</a></li>
-            <li><a href="#">Network</a></li>
-            <li><a href="#">Work</a></li>
-            <li><a href="#">Jobs</a></li>
-            <li><a href="#">Messages</a></li>
-            <li><a href="#">Notifications</a></li>
-            <li><a href="#">Profile</a></li>
-        </ul>
-        <div class="logout">
-            <form action="backend/logout.php" method="POST" class="logout-form">
-                <input type="hidden" name="logout" value="true">
-                    <button type="submit" class="logout-btn">
-                        <img src="img/logoutButton.png" alt="Logout" class="logout-icon">
-                    </button>
-                </form>
-            </div>
-    </nav>
-</header>
+    <?php 
+        get_header();
+    ?>
 
 <div class="profile-container">
     <form action="backend/update_profile.php" method="POST" enctype="multipart/form-data">
@@ -98,30 +78,8 @@
     </form>
 </div>
 
-<footer>
-
-    <div class="footerContainer">
-        <div class="socialIcons">
-            <a href=""><i class="fa-brands fa-facebook"></i></a>
-            <a href=""><i class="fa-brands fa-instagram"></i></a>
-            <a href=""><i class="fa-brands fa-twitter"></i></a>
-            <a href=""><i class="fa-brands fa-google-plus"></i></a>
-            <a href=""><i class="fa-brands fa-youtube"></i></a>
-        </div>
-
-        <div class="footer-Nav">
-                <ul>
-                    <li><a href="#">Service</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Learn More</a></li>
-                </ul>
-        </div>
-
-    </div>
-
-</footer>
-
-
+<?php
+    get_footer();
+?>
 </body>
 </html>

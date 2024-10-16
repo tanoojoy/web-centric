@@ -31,59 +31,15 @@
 
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <header>
-        <nav>
-            <div class="logo">Talent<b>Hub</b></div>
-            <div class="search-bar">
-                    <form action="search_results.php" method="post" class="form">
-                        <input type="text" name="keyword" placeholder="Search for jobs, companies...">
-                        <button type="submit">
-                        <img src="img/searchButton.png" alt="Search Icon" />
-                        </button>
-                    </form>
-            </div>
-            <div>
-                <ul class="links">
-                    <li><a href="homepage.php">Home</a></li>
-                    <li><a href="#">Network</a></li>
-                    <li><a href="#">Work</a></li>
-                    <li><a href="#">Jobs</a></li>
-                    <li><a href="#">Messages</a></li>
-                    <li><a href="#">Notifications</a></li>
-                    <li><a href="profile.php">Profile</a></li>
-                    
-                </ul>
-            </div>
-            <div class="logout">
-                <form action="backend/logout.php" method="POST" class="logout-form">
-                    <input type="hidden" name="logout" value="true">
-                        <button type="submit" class="logout-btn">
-                            <img src="img/logoutButton.png" alt="Logout" class="logout-icon"> 
-                        </button>
-                </form>
-            </div>  
-        </nav>
-    </header>
+    <?php 
+        get_header();
+    ?>
 
     <!-- Main Container -->
     <div class="container">
-        <!-- Sidebar -->
-        <aside class="sidebar">
-            <div class="profile-summary">
-                <img src="img/capy.jpeg" alt="Profile Picture" class="profile-pic">
-                <h3><?php echo $username; ?></h3>
-                <p>Software Developer at ABC Corp</p>
-            </div>
-            <ul class="sidebar-links">
-                <li><a href="#">Dashboard</a></li>
-                <li><a href="#">My Jobs</a></li>
-                <li><a href="#">Saved Jobs</a></li>
-                <li><a href="https://www.indeed.com/career-advice">Career Advice</a></li>
-                <li><a href="#">Settings</a></li>
-                <li><a href="job-posting.php">Create Job posting</a></li>   
-            </ul>
-        </aside>
+        <?php 
+            get_sidebar($username);
+        ?>
 
         <!-- Main Feed -->
         <section class="main-feed">
@@ -103,25 +59,8 @@
             ?>
         </section>
     </div>
-<footer>
-    <div class="footerContainer">
-        <div class="socialIcons">
-            <a href=""><i class="fa-brands fa-facebook"></i></a>
-            <a href=""><i class="fa-brands fa-instagram"></i></a>
-            <a href=""><i class="fa-brands fa-twitter"></i></a>
-            <a href=""><i class="fa-brands fa-google-plus"></i></a>
-            <a href=""><i class="fa-brands fa-youtube"></i></a>
-        </div>
-
-        <div class="footer-Nav">
-            <ul>
-                <li><a href="#">Service</a></li>
-                <li><a href="#">Contact Us</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Learn More</a></li>
-            </ul>
-        </div>
-    </div>
-</footer>
+    <?php
+        get_footer();
+    ?>
 </body>
 </html>

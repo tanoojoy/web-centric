@@ -6,7 +6,7 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-image: linear-gradient(rgba(243,129,129,.9), rgba(252,227,138,.9));
+    padding-top: 80px;
 }
 
 header {
@@ -19,7 +19,6 @@ header {
     position: fixed;
     width: 100%;
     top: 0;
-    z-index: 100;
 }
 
 nav {
@@ -125,24 +124,16 @@ nav .links  a {
     object-fit: cover; 
 }
 
-
 .logout-btn:hover {
     background-color:#ccb8b7; 
 }
-
-
-
-
 .container {
     display: flex;
-    margin-top: 80px; 
-    /* width: 1vw; */
-    margin-bottom:200px;
+    width: 100%;
 }
 
 .sidebar {
     position: fixed; 
-    top: 100px;
     width: 275px; 
     height: calc(100vh - 80px); 
     overflow-y: auto; 
@@ -150,7 +141,6 @@ nav .links  a {
     padding: 20px;
     border-radius: 7px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
-    margin-bottom: 30px;
 }
 
 .profile-pic {
@@ -233,12 +223,10 @@ a:visited {
     padding: 20px;
     background-color:rgba(68, 37, 37, 0.3);
     margin-left: 326px; 
-    margin-bottom: 10px;
     height: 100%;
     border-radius: 7px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
-
-    
+    margin-bottom: 86px;
 }
 
 
@@ -331,15 +319,15 @@ a:visited {
 
 /* footer*/
 
-.footer{
+/* .footer{
     background-color:#111;
 
-}
+} */
 
 .footerContainer{
     width:100%;
     padding:20px 20px 10px;
-    background-image: linear-gradient(rgba(243,129,129,.9), rgba(252,227,138,.9));
+    background-color: #fadedc;
     /* position:absolute; */
     position: fixed;
     left: 0;

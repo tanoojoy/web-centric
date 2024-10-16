@@ -1,22 +1,38 @@
 <?php
 
 require_once 'vendor/autoload.php';
-require_once 'secrets.php';
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+$key = $_ENV['stripe_key'];
+$tier = $_POST['tier'];
 
-\Stripe\Stripe::setApiKey($stripeSecretKey);
+\Stripe\Stripe::setApiKey($key);
 header('Content-Type: application/json');
 
 $YOUR_DOMAIN = 'http://localhost:80/web-centric';
 
+$get_subscriptions = \Stripe\Price::all();
+
+foreach($get_subscriptions['data'] as $price){
+    if($price['unit_amount'] == 4500 && $tier == 'high'){
+        $price_id = $price['id'];
+    }
+    if($price['unit_amount'] == 3000 && $tier == 'mid'){
+        $price_id = $price['id'];
+    }
+    if($price['unit_amount'] == 1500 && $tier == 'low'){
+        $price_id = $price['id'];
+    }
+}
+
 $checkout_session = \Stripe\Checkout\Session::create([
-  'line_items' => [[
-    # Provide the exact Price ID (e.g. pr_1234) of the product you want to sell
-    'price' => 'price_1QA3x5P8XPbs6jH8TEpLvx1F',
-    'quantity' => 1,
-  ]],
-  'mode' => 'subscription',
-  'success_url' => $YOUR_DOMAIN . '/success.php',
-  'cancel_url' => $YOUR_DOMAIN . '/cancelled.php',
+    'line_items' => [[
+        'price' => $price_id,
+        'quantity' => 1,
+    ]],
+    'mode' => 'subscription',
+    'success_url' => $YOUR_DOMAIN . '/success.php',
+    'cancel_url' => $YOUR_DOMAIN . '/cancelled.php',
 ]);
 
 header("HTTP/1.1 303 See Other");
