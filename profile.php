@@ -84,7 +84,7 @@
                         <option <?php if($profile['location'] == "West"){ echo "selected"; } ?> value="West">West</option>
                     </select>
                 
-                    <label for="industry"><strong>Levelndustry:</strong></label>
+                    <label for="industry"><strong>Industry:</strong></label>
                     <select name="industry" id="industry">
                         <option <?php if($profile['industry'] == "Information and Technology"){ echo "selected"; } ?> value="Information and Technology">Information and Technology</option>
                         <option <?php if($profile['industry'] == "Fianance"){ echo "selected"; } ?> value="Finance">Fianance</option>

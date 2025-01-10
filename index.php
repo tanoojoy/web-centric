@@ -184,7 +184,7 @@
                 <h3>Create Account</h3>
                 <form action="backend/sign_up.php" method="POST">
                     <label for="username">Username:</label>
-                    <input type="email" name="username" placeholder="Email" required />
+                    <input type="email" name="username" placeholder="Email" required />  
                     
                     <label for="password">Password:</label>
                     <input type="password" name="password" placeholder="Password" required />
