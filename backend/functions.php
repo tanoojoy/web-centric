@@ -6,7 +6,7 @@ function search_jobs($keyword = null, $location = null, $emp_type =  null, $expi
     $reponse = [];
     //no arguments. Fetch ALL jobs
     if (!(isset($keyword) && isset($location) && isset($emp_type) && isset($expiry_date))) {
-        $sql = "SELECT jobposting.title, jobposting.description, jobposting.location, company.name AS company_name
+        $sql = "SELECT jobposting.job_id, jobposting.title, jobposting.description, jobposting.location, jobposting.employment_type, jobposting.work_level, jobposting.experience_needed, company.name AS company_name, company.logo
                 FROM jobposting
                 JOIN company ON jobposting.company_id = company.company_id;";
     }
@@ -28,10 +28,15 @@ function search_jobs($keyword = null, $location = null, $emp_type =  null, $expi
         while($row = $jobpostings->fetch_assoc()) {  //store the SQL row in a variable $row
             
             $job = [
-                'job_title'       => $row['title'],
-                'job_description' => $row['description'],
-                'job_location'    => $row['location'],
-                'company_name'    => $row['company_name']
+                'job_id'                => $row['job_id'],
+                'job_title'             => $row['title'],
+                'job_description'       => $row['description'],
+                'job_location'          => $row['location'],
+                'company_name'          => $row['company_name'],
+                'company_logo'          => $row['logo'],
+                'job_experience_needed' => $row['experience_needed'],
+                'job_work_level'        => $row['work_level'],
+                'job_employment_type'   => $row['employment_type']
             ];
             
             array_push($reponse, $job);
@@ -113,7 +118,7 @@ function get_header(){
                             <li><a href=\"homepage.php\">Home</a></li>
                             <li><a href=\"#\">Network</a></li>
                             <li><a href=\"#\">Work</a></li>
-                            <li><a href=\"#\">Jobs</a></li>
+                            <li><a href=\"home.php\">Jobs</a></li>
                             <li><a href=\"#\">Messages</a></li>
                             <li><a href=\"#\">Notifications</a></li>
                             <li><a href=\"profile.php\">Profile</a></li>
