@@ -5,12 +5,14 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: Poppins, sans-serif;
     padding-top: 80px;
+    
 }
 
+
 header {
-    background-color: #fadedc;
+    background-color:#689ded;
     color: white;
     padding: 10px 0;
     display: flex;
@@ -20,6 +22,10 @@ header {
     width: 100%;
     top: 0;
 }
+
+
+
+
 
 nav {
     display: flex;
@@ -77,7 +83,7 @@ nav .links  a {
 
 .search-bar .form button {
     padding: 5px;
-    background-color:  #fadedc;
+    background-color: #689ded;
     color: white;
     border: none;
     border-radius: 5px;
@@ -97,14 +103,14 @@ nav .links  a {
 }
 
 .search-bar .form button:hover {
-    background-color:#ccb8b7;
+    background-color:#689ded;
 }
 
 
 
 
 .logout-btn {
-    background-color:  #fadedc;
+    background-color:  #689ded;
     color: #43464b;
     border: none;
     padding: 5px 10px; 
@@ -125,7 +131,7 @@ nav .links  a {
 }
 
 .logout-btn:hover {
-    background-color:#ccb8b7; 
+    background-color:#689ded; 
 }
 .container {
     display: flex;
@@ -137,11 +143,11 @@ nav .links  a {
     width: 275px; 
     height: 100vh; 
     overflow-y: auto; 
-    background-color: #dedcfa;
+    background-color: #f1f3f7    ;
     padding: 20px;
     border-radius: 7px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
-    margin-left: 10px;
+    margin-top: -20px;
 }
 
 .profile-pic {
@@ -223,11 +229,13 @@ a:visited {
     flex: 0 0 1140px; 
     padding: 20px;
     background-color:rgba(68, 37, 37, 0.3);
-    margin-left: 290px; 
+    margin-left: 325px; 
     height: 100%;
     border-radius: 7px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
     margin-bottom: 86px;
+    
+    
 }
 
 
@@ -237,17 +245,19 @@ a:visited {
     margin-bottom: 20px;
     text-align:center;
     color: #24242f ;
+    
 }
 
 
 .job-post {
-    padding: 15px;
+    padding: 20px;
     border: 1px solid #fadedc;
     margin-bottom: 15px;
     border-radius: 5px;
-    background-color: #fadedc;
+    background-color:#eff3fd ;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
     color:#5f4e4b;
+
     /* background-color:rgba(214, 190, 190, 0.9); */
 }
 
@@ -258,7 +268,7 @@ a:visited {
 }
 
 .apply-btn {
-    background-color: #24242f;
+    background-color: #0162ff;    ;
     color: white;
     padding: 8px 12px;
     border: none;
@@ -268,7 +278,7 @@ a:visited {
 }
 
 .apply-btn:hover {
-    background-color:  #101015; 
+    background-color:  #5052d5; 
 }
 
 
@@ -328,7 +338,7 @@ a:visited {
 .footerContainer{
     width:100%;
     padding:20px 20px 10px;
-    background-color: #fadedc;
+    background-color:#689ded ;
     /* position:absolute; */
     position: fixed;
     left: 0;
