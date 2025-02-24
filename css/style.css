@@ -9,6 +9,7 @@ body {
     padding-top: 80px;
 }
 
+
 header {
     background-color: #fadedc;
     color: white;
@@ -20,6 +21,10 @@ header {
     width: 100%;
     top: 0;
 }
+
+
+
+
 
 nav {
     display: flex;
@@ -137,11 +142,11 @@ nav .links  a {
     width: 275px; 
     height: 100vh; 
     overflow-y: auto; 
-    background-color: #dedcfa;
+    background-color: #eeeef4;
     padding: 20px;
     border-radius: 7px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
-    margin-left: 10px;
+    margin-top: -20px;
 }
 
 .profile-pic {
@@ -221,13 +226,14 @@ a:visited {
 
 .main-feed {
     flex: 0 0 1140px; 
-    padding: 20px;
+    padding: 80px;
     background-color:rgba(68, 37, 37, 0.3);
     margin-left: 290px; 
     height: 100%;
     border-radius: 7px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
     margin-bottom: 86px;
+    
 }
 
 
