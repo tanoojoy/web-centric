@@ -50,7 +50,6 @@
 
         <!-- Main Feed -->
         <section class="main-feed">
-            <h2>Job Recommendations</h2>
             <?php
                 $jobs = search_jobs();
                 foreach($jobs as $job){
