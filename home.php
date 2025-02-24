@@ -237,7 +237,6 @@
           <div class="job-cards">
             <?php
                 foreach($jobs as $job){
-                    echo $job['title'];
                     echo "<div id=\"" . $job['job_id'] . "\"class=\"job-card\">
                             <div class=\"job-card-header\">
                                 <img src=\"img/" . $job['company_logo'] . "\" width=\"46\" height=\"46\">
