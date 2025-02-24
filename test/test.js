@@ -27,10 +27,6 @@ jobCards.forEach((jobCard) => {
         const url = `https://unsplash.it/640/425?image=${number}`;
         jobBg.src = url;
 
-        const logo = jobCard.querySelector("svg");
-        const bg = logo.style.backgroundColor;
-        console.log(bg);
-        jobBg.style.background = bg;
         const title = jobCard.querySelector(".job-card-title");
         jobDetailTitle.textContent = title.textContent;
         jobLogos.innerHTML = logo.outerHTML;
@@ -44,3 +40,21 @@ logo.addEventListener("click", () => {
  wrapper.scrollTop = 0;
    jobBg.style.background = bg;
 });
+
+$(".job-overview-card").click(function(){
+    var body = {
+        "job_id" : $(this).attr("id").split("_")[1]
+    };
+
+    var settings = {
+        "url": "backend/get_one_job.php",
+        "method": "POST",
+        "data": JSON.stringify(body)
+    };
+
+    $.ajax(settings).done(function(response){
+        // response = JSON.parse(response);
+
+        console.log(response);
+    })
+})

@@ -22,6 +22,14 @@ function search_jobs($keyword = null, $location = null, $emp_type =  null, $expi
                     OR INSTR(company.name, '" . $keyword . "') > 0;";
     }
 
+    //search jobs by id
+    if(isset($id)){
+        $sql = "SELECT jobposting.job_id, jobposting.title, jobposting.description, jobposting.location, jobposting.employment_type, jobposting.work_level, jobposting.experience_needed, company.name AS company_name, company.logo
+                FROM jobposting
+                JOIN company ON jobposting.company_id = company.company_id
+                WHERE jobposting.job_id = '" . $id ."';";
+    }
+
     $jobpostings = $GLOBALS['conn']->query($sql);
 
     if ($jobpostings->num_rows > 0) { // Check if any records were found
@@ -45,6 +53,9 @@ function search_jobs($keyword = null, $location = null, $emp_type =  null, $expi
     else {
         if(isset($keyword)){
             echo "There are no jobs that match '$keyword'";
+        }
+        else if(isset($id)){
+            echo "No job found with id '$id'";
         }
         else{
             echo "There are no jobs available.";

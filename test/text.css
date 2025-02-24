@@ -589,6 +589,7 @@ body {
   width: 330px;
   height: 100%;
   flex-shrink: 0;
+  overflow-y: scroll;
 }
 .job-overview-card + .job-overview-card {
   margin-top: 20px;
@@ -625,7 +626,7 @@ body {
   font-weight: 500;
 }
 .job-overview .overview-wrapper {
-  display: flex;
+  /* display: flex; */
   align-items: center;
 }
 .job-overview .overview-wrapper svg:first-child {
