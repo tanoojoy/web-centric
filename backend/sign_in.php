@@ -22,7 +22,7 @@ if ($result->num_rows > 0) { // Check if any records were found
             $_SESSION["user_id"] = $row['user_id']; 
             $_SESSION["username"] = $row['username'];
 
-            header("Location: ../homepage.php");
+            header("Location: ../home.php");
             exit();
         }
         else{

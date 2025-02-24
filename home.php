@@ -56,8 +56,10 @@
       </div>
       <div class="header-menu">
         <a href="#" class="active">Find Job</a>
-        <a href="#">Company Review</a>
-        <a href="#">Find Salaries</a>
+        <a href="pricing.php">Premium</a>
+        <a href="job-posting.php">Company Only - Create job posting</a>
+        <a href="#">Menu 2</a>
+        <a href="profile.php">My Profile</a>
       </div>
       <div class="user-settings">
         <div class="dark-light">

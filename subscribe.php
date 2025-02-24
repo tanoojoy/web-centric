@@ -31,7 +31,7 @@
         <nav>
             <div class="logo">Talent<b>Hub</b></div>
             <ul class="links">
-                <li><a href="homepage.php">Home</a></li>
+                <li><a href="home.php">Home</a></li>
                 <li><a href="#">Network</a></li>
                 <li><a href="#">Work</a></li>
                 <li><a href="#">Jobs</a></li>

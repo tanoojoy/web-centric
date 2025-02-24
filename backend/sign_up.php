@@ -23,7 +23,7 @@ if ($result === TRUE) {
    //  $_SESSION['username'] = $row['username'];
     
     // Redirect to homepage
-    header("Location: ../homepage.php");
+    header("Location: ../home.php");
     exit();
 } else {
     // Handle errors during insertion

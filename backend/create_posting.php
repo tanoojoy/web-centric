@@ -21,14 +21,14 @@
     if ($stmt === TRUE) {
         $conn->close();
         // echo "Job posting successfully added.";
-        header("Location: ../homepage.php");
+        header("Location: ../home.php");
         exit();
     } else {
         echo "Error: " . $stmt->error;
     }
     $conn->close();
 
-    header("Location: ../homepage.php");
+    header("Location: ../home.php");
     exit();
 
 ?>

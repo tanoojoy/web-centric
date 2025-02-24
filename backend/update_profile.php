@@ -53,7 +53,7 @@
 
     $conn->close();
 
-    header("Location: ../homepage.php");
+    header("Location: ../home.php");
     exit();
 
 ?>
