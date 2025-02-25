@@ -123,34 +123,19 @@
             <div class="job-time-title">Type of Employment</div>
             <div class="job-wrapper">
               <div class="type-container">
-                <input type="checkbox" id="job1" class="job-style" checked>
-                <label for="job1">Full Time Jobs</label>
-                <span class="job-number">56</span>
+                <input type="checkbox" id="fulltime" class="job-style">
+                <label for="fulltime">Full Time Jobs</label>
+                <span class="job-number"><?php echo job_count("Full Time"); ?></span>
               </div>
               <div class="type-container">
-                <input type="checkbox" id="job2" class="job-style">
-                <label for="job2">Part Time Jobs</label>
-                <span class="job-number">43</span>
+                <input type="checkbox" id="parttime" class="job-style">
+                <label for="parttime">Part Time Jobs</label>
+                <span class="job-number"><?php echo job_count("Part Time"); ?></span>
               </div>
               <div class="type-container">
-                <input type="checkbox" id="job3" class="job-style">
-                <label for="job3">Remote Jobs</label>
-                <span class="job-number">24</span>
-              </div>
-              <div class="type-container">
-                <input type="checkbox" id="job4" class="job-style">
-                <label for="job4">Internship Jobs</label>
-                <span class="job-number">27</span>
-              </div>
-              <div class="type-container">
-                <input type="checkbox" id="job5" class="job-style">
-                <label for="job5">Contract</label>
-                <span class="job-number">76</span>
-              </div>
-              <div class="type-container">
-                <input type="checkbox" id="job6" class="job-style">
-                <label for="job6">Training Jobs</label>
-                <span class="job-number">28</span>
+                <input type="checkbox" id="internship" class="job-style">
+                <label for="internship">Internship Jobs</label>
+                <span class="job-number"><?php echo job_count("Internship"); ?></span>
               </div>
             </div>
           </div>
@@ -158,34 +143,24 @@
             <div class="job-time-title">Seniority Level</div>
             <div class="job-wrapper">
               <div class="type-container">
-                <input type="checkbox" id="job7" class="job-style">
-                <label for="job7">Student Level</label>
-                <span class="job-number">98</span>
+                <input type="checkbox" id="student" class="job-style">
+                <label for="student">Student Level</label>
+                <span class="job-number"><?php echo work_level_count("Student Level") ?></span>
               </div>
               <div class="type-container">
-                <input type="checkbox" id="job8" class="job-style">
-                <label for="job8">Entry Level</label>
-                <span class="job-number">44</span>
+                <input type="checkbox" id="entry" class="job-style">
+                <label for="entry">Entry Level</label>
+                <span class="job-number"><?php echo work_level_count("Entry Level") ?></span>
               </div>
               <div class="type-container">
-                <input type="checkbox" id="job9" class="job-style" checked>
-                <label for="job9">Mid Level</label>
-                <span class="job-number">35</span>
+                <input type="checkbox" id="mid" class="job-style">
+                <label for="mid">Mid Level</label>
+                <span class="job-number"><?php echo work_level_count("Mid Level") ?></span>
               </div>
               <div class="type-container">
-                <input type="checkbox" id="job10" class="job-style" checked>
-                <label for="job10">Senior Level</label>
-                <span class="job-number">29</span>
-              </div>
-              <div class="type-container">
-                <input type="checkbox" id="job11" class="job-style">
-                <label for="job11">Directors</label>
-                <span class="job-number">26</span>
-              </div>
-              <div class="type-container">
-                <input type="checkbox" id="job12" class="job-style">
-                <label for="job12">VP or Above</label>
-                <span class="job-number">56</span>
+                <input type="checkbox" id="senior" class="job-style">
+                <label for="senior">Senior Level</label>
+                <span class="job-number"><?php echo work_level_count("Senior Level") ?></span>
               </div>
             </div>
           </div>
@@ -194,38 +169,38 @@
             <div class="job-wrapper">
               <div class="type-container">
                 <input type="checkbox" id="job1" class="job-style">
-                <label for="job1">$700 - $1000</label>
-                <span class="job-number">49</span>
+                <label for="job1">Rs15000 - Rs18000</label>
+                <span class="job-number"><?php echo salary_range_count(15000, 18000); ?></span>
               </div>
               <div class="type-container">
                 <input type="checkbox" id="job2" class="job-style">
-                <label for="job2">$1000 - $1200</label>
-                <span class="job-number">67</span>
+                <label for="job2">Rs18001 - Rs20000</label>
+                <span class="job-number"><?php echo salary_range_count(18001, 20000); ?></span>
               </div>
               <div class="type-container">
                 <input type="checkbox" id="job3" class="job-style">
-                <label for="job3">$1200 - $1400</label>
-                <span class="job-number">24</span>
+                <label for="job3">Rs20001 - Rs22000</label>
+                <span class="job-number"><?php echo salary_range_count(20001, 22000); ?></span>
               </div>
               <div class="type-container">
                 <input type="checkbox" id="job4" class="job-style">
-                <label for="job4">$1500 - $1800</label>
-                <span class="job-number">27</span>
+                <label for="job4">Rs22001 - Rs24000</label>
+                <span class="job-number"><?php echo salary_range_count(22001, 24000); ?></span>
               </div>
               <div class="type-container">
-                <input type="checkbox" id="job5" class="job-style" checked>
-                <label for="job5">$2000 - $3000</label>
-                <span class="job-number">76</span>
-              </div>
-              <div class="type-container">
-                <input type="checkbox" id="job6" class="job-style" checked>
-                <label for="job6">$3000 - $4000</label>
-                <span class="job-number">22</span>
+                <input type="checkbox" id="job5" class="job-style">
+                <label for="job5">Rs24001 - Rs26000</label>
+                <span class="job-number"><?php echo salary_range_count(24001, 26000); ?></span>
               </div>
               <div class="type-container">
                 <input type="checkbox" id="job6" class="job-style">
-                <label for="job6">$4000 - $5000</label>
-                <span class="job-number">18</span>
+                <label for="job6">Rs26001 - Rs28000</label>
+                <span class="job-number"><?php echo salary_range_count(26001, 28000); ?></span>
+              </div>
+              <div class="type-container">
+                <input type="checkbox" id="job6" class="job-style">
+                <label for="job6">Rs28001 - Rs30000</label>
+                <span class="job-number"><?php echo salary_range_count(28001, 30000); ?></span>
               </div>
             </div>
           </div>
@@ -253,7 +228,7 @@
                             </div>
                             <div class=\"job-card-buttons\">
                                 <button class=\"search-buttons card-buttons\">Apply Now</button>
-                                <button class=\"search-buttons card-buttons-msg\">Messages</button>
+                                <button class=\"search-buttons card-buttons-msg\">Save Job</button>
                             </div>
                         </div>";
                 }

@@ -66,6 +66,84 @@ function search_jobs($keyword = null, $location = null, $emp_type =  null, $expi
     return $reponse;
 }
 
+function job_count($type){
+    $sql = "SELECT COUNT(*) FROM jobposting WHERE employment_type = '$type';";
+    $count = $GLOBALS['conn']->query($sql);
+
+    if($count->num_rows > 0){
+        $row = $count->fetch_assoc();
+        return $row['COUNT(*)'];
+    }
+    else{
+        return 0;
+    }
+}
+
+function work_level_count($level){
+    $sql = "SELECT COUNT(*) FROM jobposting WHERE work_level = '$level';";
+    $count = $GLOBALS['conn']->query($sql);
+
+    if($count->num_rows > 0){
+        $row = $count->fetch_assoc();
+        return $row['COUNT(*)'];
+    }
+    else{
+        return 0;
+    }
+}
+
+function salary_range_count($min, $max){
+    $sql = "SELECT COUNT(*) FROM jobposting WHERE salary >=  '$min' AND salary <= '$max';";
+    $count = $GLOBALS['conn']->query($sql);
+
+    if($count->num_rows > 0){
+        $row = $count->fetch_assoc();
+        return $row['COUNT(*)'];
+    }
+    else{
+        return 0;
+    }
+}
+
+function filter_jobs_employment_type($type, $work_level = null, $salary_range = null){
+    $response = [];
+    $sql = "SELECT jobposting.job_id, jobposting.title, jobposting.description, jobposting.location, jobposting.employment_type, jobposting.work_level, jobposting.experience_needed, jobposting.salary, company.name AS company_name, company.logo
+                FROM jobposting
+                JOIN company ON jobposting.company_id = company.company_id
+                WHERE jobposting.employment_type = \"" . $type . "\"";
+    
+    if(isset($work_level)){
+       $sql = $sql . " AND jobposting.work_level = \"" . $work_level . "\";"; 
+    }
+
+    $results = $GLOBALS['conn']->query($sql);
+
+    if ($results->num_rows > 0) { // Check if any records were found
+        while($row = $results->fetch_assoc()) {
+            $job = "<div id=\"" . $row['job_id'] . "\"class=\"job-card\">
+                            <div class=\"job-card-header\">
+                                <img src=\"img/" . $row['company_logo'] . "\" width=\"46\" height=\"46\">
+                                <div class=\"menu-dot\"></div>
+                            </div>
+                            <div class=\"job-card-title\">" . $row['title'] . "</div>
+                            <div class=\"job-card-subtitle\">" . $row['job_description'] . "</div>
+                            <div class=\"job-detail-buttons\">
+                                <button class=\"search-buttons detail-button\">" . $row['employment_type'] . "</button>
+                                <button class=\"search-buttons detail-button\">" . $row['experience_needed'] . "</button>
+                                <button class=\"search-buttons detail-button\">" . $row['work_level'] . "</button>
+                            </div>
+                            <div class=\"job-card-buttons\">
+                                <button class=\"search-buttons card-buttons\">Apply Now</button>
+                                <button class=\"search-buttons card-buttons-msg\">Save Job</button>
+                            </div>
+                        </div>";
+            array_push($reponse, $job);
+        }
+    }
+
+    return $reponse;
+}
+
 function get_skills(){
     $sql = "SELECT skill_name FROM `skills` WHERE 1";
     
