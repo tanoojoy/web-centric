@@ -35,6 +35,30 @@
             background-color: white;
             box-shadow: 0 0 0 0;
         }
+
+        .logout-container {
+          display: flex;
+          align-items: center;
+        }
+
+        .logout-btn {
+          background: none;
+          border: none;
+          cursor: pointer;
+          padding: 5px;
+        }
+
+        .logout-btn svg {
+          width: 24px;
+          height: 24px;
+          stroke: red;
+          transition: stroke 0.3s ease;
+        }
+
+        .logout-btn:hover svg {
+          stroke: darkred;
+        }
+
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
@@ -68,12 +92,19 @@
             <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
           </svg>
         </div>
-        <div class="user-menu">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-            stroke-linecap="round" stroke-linejoin="round" class="feather feather-square">
-            <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-          </svg>
+
+        <div class="logout-container">
+          <a href="backend/logout.php" method="POST" class="logout-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-out">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+              <polyline points="16 17 21 12 16 7" />
+              <line x1="21" y1="12" x2="9" y2="12" />
+            </svg>
+          </a>
         </div>
+
+
         
         <div class="user-name"><?php echo $user['first_name'] . " " . $user['last_name'] ?></div>
       </div>
