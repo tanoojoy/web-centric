@@ -1,10 +1,5 @@
 <?php
-    if (isset($_POST['logout'])) {
-        session_start();
-        unset($_SESSION);
-        session_destroy();
-        session_write_close();
-        header('Location: ../index.php');
-        die;
-    }
+   session_start();
+   unset($_SESSION['user_id']);
+   header("location:../index.php");
 ?>
