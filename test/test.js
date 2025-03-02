@@ -20,31 +20,35 @@ toggleButton.addEventListener("click", () => {
     document.body.classList.toggle("dark-mode");
 });
 
-const jobCards = document.querySelectorAll(".job-card");
-const logo = document.querySelector(".logo");
-const jobLogos = document.querySelector(".job-logos");
-const jobDetailTitle = document.querySelector(".job-explain-content .job-card-title");
-const jobBg = document.querySelector(".job-bg");
+function add_click_events(){
+    const jobCards = document.querySelectorAll(".job-card");
+    const logo = document.querySelector(".logo");
+    const jobLogos = document.querySelector(".job-logos");
+    const jobDetailTitle = document.querySelector(".job-explain-content .job-card-title");
+    const jobBg = document.querySelector(".job-bg");
 
-jobCards.forEach((jobCard) => {
-    jobCard.addEventListener("click", () => {
-        const number = Math.floor(Math.random() * 10);
-        const url = `https://unsplash.it/640/425?image=${number}`;
-        jobBg.src = url;
+    jobCards.forEach((jobCard) => {
+        jobCard.addEventListener("click", () => {
+            const number = Math.floor(Math.random() * 10);
+            const url = `https://unsplash.it/640/425?image=${number}`;
+            jobBg.src = url;
 
-        const title = jobCard.querySelector(".job-card-title");
-        jobDetailTitle.textContent = title.textContent;
-        jobLogos.innerHTML = logo.outerHTML;
-        wrapper.classList.add("detail-page");
-        wrapper.scrollTop = 0;
+            const title = jobCard.querySelector(".job-card-title");
+            jobDetailTitle.textContent = title.textContent;
+            jobLogos.innerHTML = logo.outerHTML;
+            wrapper.classList.add("detail-page");
+            wrapper.scrollTop = 0;
+        });
     });
-});
 
-logo.addEventListener("click", () => {
- wrapper.classList.remove("detail-page");
- wrapper.scrollTop = 0;
-   jobBg.style.background = bg;
-});
+    logo.addEventListener("click", () => {
+        wrapper.classList.remove("detail-page");
+        wrapper.scrollTop = 0;
+        jobBg.style.background = bg;
+    });
+}
+
+add_click_events();
 
 $(".job-overview-card").click(function(){
     var body = {
@@ -131,15 +135,23 @@ $(".type-container input").change(function(){
     $.ajax(settings).done(function(response){
         response = JSON.parse(response);
         var jobCards = $(".job-cards");
+        var overview_cards = $(".job-overview-cards");
+
         jobCards.empty();
-        if(response.length > 0){
-            
-            response.forEach(job => {
+        overview_cards.empty();
+
+        if(response.main.length > 0){
+            response.main.forEach(job => {
                 jobCards.append(job);
             });
 
+            response.overview.forEach(job => {
+                overview_cards.append(job);
+            })
+
             var count = $("#result_count").val();
-            $(".searched-show").html("Showing " + count + " results")
+            $(".searched-show").html("Showing " + count + " results");
+            add_click_events();
         }
         else{
             $(".searched-show").html("No results found");

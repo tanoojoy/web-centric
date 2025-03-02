@@ -106,7 +106,10 @@ function salary_range_count($min, $max){
 }
 
 function filter_jobs($filter){
-    $response = [];
+    $response = [
+        'main' => [],
+        'overview' => []
+    ];
     // return $filter['employment_type'][0];
     // // return $x;
     $sql = "SELECT jobposting.job_id, jobposting.title, jobposting.description, jobposting.location, jobposting.employment_type, jobposting.work_level, jobposting.experience_needed, jobposting.salary, company.name AS company_name, company.logo, COUNT(*) OVER() AS total_count
@@ -151,7 +154,7 @@ function filter_jobs($filter){
 
     if ($results->num_rows > 0) { // Check if any records were found
         while($row = $results->fetch_assoc()) {
-            $job = "<div id=\"" . $row['job_id'] . "\"class=\"job-card\">
+            $job_main = "<div id=\"" . $row['job_id'] . "\"class=\"job-card\">
                             <div class=\"job-card-header\">
                                 <img src=\"img/" . $row['logo'] . "\" width=\"46\" height=\"46\">
                                 <div class=\"menu-dot\"></div>
@@ -169,7 +172,26 @@ function filter_jobs($filter){
                             </div>
                         </div>
                         <input id=\"result_count\" type=\"hidden\" value=\"". $row['total_count'] ."\"/>";
-            array_push($response, $job);
+            array_push($response['main'], $job_main);
+
+            $job_overview = "<div id=\"overview_" . $row['job_id'] . "\"class=\"job-overview-card\">
+                                <div class=\"job-card overview-card\">
+                                <div class=\"overview-wrapper\">
+                                    <img src=\"img/" . $row['logo'] . "\" width=\"42\" height=\"42\">
+                                    <div class=\"overview-detail\">
+                                    <div class=\"job-card-title\">" . $row['title'] . "</div>
+                                    <div class=\"job-card-subtitle\">" . $row['location'] . "</div>
+                                    </div>
+                                </div>
+                                <div class=\"job-overview-buttons\">
+                                    <div class=\"search-buttons time-button\">" . $row['employment_type'] . "</div>
+                                    <div class=\"search-buttons level-button\">" . $row['work_level'] . "</div>
+                                    <div class=\"job-stat\">New</div>
+                                    <div class=\"job-day\">4d</div>
+                                </div>
+                                </div>
+                            </div>";
+            array_push($response['overview'], $job_overview);
         }
     }
 
