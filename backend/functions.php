@@ -105,15 +105,46 @@ function salary_range_count($min, $max){
     }
 }
 
-function filter_jobs_employment_type($type, $work_level = null, $salary_range = null){
+function filter_jobs($filter){
     $response = [];
-    $sql = "SELECT jobposting.job_id, jobposting.title, jobposting.description, jobposting.location, jobposting.employment_type, jobposting.work_level, jobposting.experience_needed, jobposting.salary, company.name AS company_name, company.logo
+    // return $filter['employment_type'][0];
+    // // return $x;
+    $sql = "SELECT jobposting.job_id, jobposting.title, jobposting.description, jobposting.location, jobposting.employment_type, jobposting.work_level, jobposting.experience_needed, jobposting.salary, company.name AS company_name, company.logo, COUNT(*) OVER() AS total_count
                 FROM jobposting
-                JOIN company ON jobposting.company_id = company.company_id
-                WHERE jobposting.employment_type = \"" . $type . "\"";
-    
-    if(isset($work_level)){
-       $sql = $sql . " AND jobposting.work_level = \"" . $work_level . "\";"; 
+                JOIN company ON jobposting.company_id = company.company_id";
+
+    $conditions = [];
+
+    // Filter by employment type
+    if (!empty($filter['employment_type'])) {
+        $types = array_map(fn($filter) => "'" . addslashes($filter) . "'", $filter['employment_type']);
+        $conditions[] = "jobposting.employment_type IN (" . implode(", ", $types) . ")";
+    }
+
+    // Filter by work level
+    if (!empty($filter['work_level'])) {
+        $levels = array_map(fn($filter) => "'" . addslashes($filter) . "'", $filter['work_level']);
+        $conditions[] = "jobposting.work_level IN (" . implode(", ", $levels) . ")";
+    }
+
+    // Filter by salary range
+    if (!empty($filter['salary_range'])) {
+        $salaryConditions = [];
+        foreach ($filter['salary_range'] as $range) {
+            if (is_array($range) && count($range) === 2) {
+                $min = (int) $range[0];
+                $max = (int) $range[1];
+                $salaryConditions[] = "(jobposting.salary BETWEEN $min AND $max)";
+            }
+        }
+        if (!empty($salaryConditions)) {
+            $conditions[] = "(" . implode(" OR ", $salaryConditions) . ")";
+        }
+    }
+
+    // Append conditions to SQL query
+    if (!empty($conditions)) {
+        $sql .= " WHERE " . implode(" AND ", $conditions);
     }
 
     $results = $GLOBALS['conn']->query($sql);
@@ -122,11 +153,11 @@ function filter_jobs_employment_type($type, $work_level = null, $salary_range = 
         while($row = $results->fetch_assoc()) {
             $job = "<div id=\"" . $row['job_id'] . "\"class=\"job-card\">
                             <div class=\"job-card-header\">
-                                <img src=\"img/" . $row['company_logo'] . "\" width=\"46\" height=\"46\">
+                                <img src=\"img/" . $row['logo'] . "\" width=\"46\" height=\"46\">
                                 <div class=\"menu-dot\"></div>
                             </div>
                             <div class=\"job-card-title\">" . $row['title'] . "</div>
-                            <div class=\"job-card-subtitle\">" . $row['job_description'] . "</div>
+                            <div class=\"job-card-subtitle\">" . $row['description'] . "</div>
                             <div class=\"job-detail-buttons\">
                                 <button class=\"search-buttons detail-button\">" . $row['employment_type'] . "</button>
                                 <button class=\"search-buttons detail-button\">" . $row['experience_needed'] . "</button>
@@ -136,12 +167,14 @@ function filter_jobs_employment_type($type, $work_level = null, $salary_range = 
                                 <button class=\"search-buttons card-buttons\">Apply Now</button>
                                 <button class=\"search-buttons card-buttons-msg\">Save Job</button>
                             </div>
-                        </div>";
-            array_push($reponse, $job);
+                        </div>
+                        <input id=\"result_count\" type=\"hidden\" value=\"". $row['total_count'] ."\"/>";
+            array_push($response, $job);
         }
     }
 
-    return $reponse;
+    return json_encode($response);
+    // return $sql;
 }
 
 function get_skills(){
@@ -271,4 +304,3 @@ function get_footer(){
             </div>
         </footer>';
 }
-?>

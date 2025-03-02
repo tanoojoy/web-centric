@@ -60,7 +60,7 @@ $(".job-overview-card").click(function(){
     $.ajax(settings).done(function(response){
         // response = JSON.parse(response);
 
-        console.log(response);
+        // console.log(response);
     })
 })
 
@@ -88,7 +88,7 @@ $(".type-container input").change(function(){
             filter.work_level.push("Senior Level");
         }
     }
-    else{
+    else {
         if($(this).attr("id") == 'fulltime'){
             var index = filter.employment_type.indexOf("Full Time");
             filter.employment_type.splice(index, 1);
@@ -102,35 +102,47 @@ $(".type-container input").change(function(){
             filter.employment_type.splice(index, 1);
         }
         else if($(this).attr("id")== 'student'){
-            var index = filter.employment_type.indexOf("Student Level");
-            filter.employment_type.splice(index, 1);
+            var index = filter.work_level.indexOf("Student Level");
+            filter.work_level.splice(index, 1);
         }
         else if($(this).attr("id") == 'entry'){
-            var index = filter.employment_type.indexOf("Entry Level");
-            filter.employment_type.splice(index, 1);
+            var index = filter.work_level.indexOf("Entry Level");
+            filter.work_level.splice(index, 1);
         }
         else if($(this).attr("id")== 'mid'){
-            var index = filter.employment_type.indexOf("Mid Level");
-            filter.employment_type.splice(index, 1);
+            var index = filter.work_level.indexOf("Mid Level");
+            filter.work_level.splice(index, 1);
         }
         else if($(this).attr("id")== 'senior'){
-            var index = filter.employment_type.indexOf("Senior Level");
-            filter.employment_type.splice(index, 1);
+            var index = filter.work_level.indexOf("Senior Level");
+            filter.work_level.splice(index, 1);
         }
     }
 
     var settings = {
-        "url": "backend/filter_jobs.php",
+        "url": "backend/filter.php",
         "method": "POST",
-        "data": JSON.stringify(filter)
+        "data": JSON.stringify(filter),
+        "headers": {
+            "Content-Type": "application/json"
+        }
     };
 
-    // console.log(JSON.stringify(filter));
-
     $.ajax(settings).done(function(response){
-        // const job_cards = document.querySelector(".job-cards");
-        // job_cards.appendChild(response);
+        response = JSON.parse(response);
+        var jobCards = $(".job-cards");
+        jobCards.empty();
+        if(response.length > 0){
+            
+            response.forEach(job => {
+                jobCards.append(job);
+            });
 
-        console.log((response).length);
+            var count = $("#result_count").val();
+            $(".searched-show").html("Showing " + count + " results")
+        }
+        else{
+            $(".searched-show").html("No results found");
+        }
     })
 });
