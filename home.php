@@ -320,25 +320,25 @@
                   </div>
                 </div>
                 <div class="job-subtitle-wrapper">
-                  <div class="company-name">Patreon <span class="comp-location">Londontowne, MD.</span></div>
+                  <div class="company-name"><div id="company-name">Patreon </div><span class="comp-location">Londontowne, MD.</span></div>
                   <div class="posted">Posted 8 days ago<span class="app-number">98 Application</span></div>
                 </div>
                 <div class="explain-bar">
                   <div class="explain-contents">
                     <div class="explain-title">Experience</div>
-                    <div class="explain-subtitle">Minimum 1 Year</div>
+                    <div class="explain-subtitle overview-experience">Minimum 1 Year</div>
                   </div>
                   <div class="explain-contents">
                     <div class="explain-title">Work Level</div>
-                    <div class="explain-subtitle">Senior level</div>
+                    <div class="explain-subtitle overview-work-level">Senior level</div>
                   </div>
                   <div class="explain-contents">
                     <div class="explain-title">Employee Type</div>
-                    <div class="explain-subtitle">Full Time Jobs</div>
+                    <div class="explain-subtitle overview-employment-type">Full Time Jobs</div>
                   </div>
                   <div class="explain-contents">
                     <div class="explain-title">Offer Salary</div>
-                    <div class="explain-subtitle">$2150.0 / Month</div>
+                    <div class="explain-subtitle overview-salary">$2150.0 / Month</div>
                   </div>
                 </div>
                 <div class="overview-text">

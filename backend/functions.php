@@ -66,6 +66,25 @@ function search_jobs($keyword = null, $location = null, $emp_type =  null, $expi
     return $reponse;
 }
 
+
+function get_one_job($job_id){
+    if(isset($job_id)){
+        $sql = "SELECT jobposting.job_id, jobposting.title, jobposting.description, jobposting.overview, jobposting.location, jobposting.salary, jobposting.employment_type, jobposting.work_level, jobposting.experience_needed, jobposting.no_of_applications, company.name AS company_name, company.logo, company.location
+                FROM jobposting
+                JOIN company ON jobposting.company_id = company.company_id
+                WHERE jobposting.job_id = '" . $job_id ."';";
+    }
+
+    // return $sql;
+
+    $job = $GLOBALS['conn']->query($sql);
+    if ($job->num_rows > 0) {
+        $row = $job->fetch_assoc();
+
+        return json_encode($row);
+    }
+}
+
 function job_count($type){
     $sql = "SELECT COUNT(*) FROM jobposting WHERE employment_type = '$type';";
     $count = $GLOBALS['conn']->query($sql);
@@ -176,19 +195,19 @@ function filter_jobs($filter){
 
             $job_overview = "<div id=\"overview_" . $row['job_id'] . "\"class=\"job-overview-card\">
                                 <div class=\"job-card overview-card\">
-                                <div class=\"overview-wrapper\">
-                                    <img src=\"img/" . $row['logo'] . "\" width=\"42\" height=\"42\">
-                                    <div class=\"overview-detail\">
-                                    <div class=\"job-card-title\">" . $row['title'] . "</div>
-                                    <div class=\"job-card-subtitle\">" . $row['location'] . "</div>
+                                    <div class=\"overview-wrapper\">
+                                        <img src=\"img/" . $row['logo'] . "\" width=\"42\" height=\"42\">
+                                        <div class=\"overview-detail\">
+                                            <div class=\"job-card-title\">" . $row['title'] . "</div>
+                                            <div class=\"job-card-subtitle\">" . $row['location'] . "</div>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class=\"job-overview-buttons\">
-                                    <div class=\"search-buttons time-button\">" . $row['employment_type'] . "</div>
-                                    <div class=\"search-buttons level-button\">" . $row['work_level'] . "</div>
-                                    <div class=\"job-stat\">New</div>
-                                    <div class=\"job-day\">4d</div>
-                                </div>
+                                    <div class=\"job-overview-buttons\">
+                                        <div class=\"search-buttons time-button\">" . $row['employment_type'] . "</div>
+                                        <div class=\"search-buttons level-button\">" . $row['work_level'] . "</div>
+                                        <div class=\"job-stat\">New</div>
+                                        <div class=\"job-day\">4d</div>
+                                    </div>
                                 </div>
                             </div>";
             array_push($response['overview'], $job_overview);

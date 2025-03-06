@@ -58,13 +58,24 @@ $(".job-overview-card").click(function(){
     var settings = {
         "url": "backend/get_one_job.php",
         "method": "POST",
-        "data": JSON.stringify(body)
+        "data": JSON.stringify(body),
+        "headers": {
+            "Content-Type": "application/json"
+        }
     };
 
     $.ajax(settings).done(function(response){
-        // response = JSON.parse(response);
-
-        // console.log(response);
+        response = JSON.parse(response);
+        console.log(response.overview);
+        $(".overview-text-subheader").html(response.overview);
+        $(".overview-salary").html("Rs " + response.salary + "/month");
+        $(".overview-experience").html(response.experience_needed);
+        $(".overview-employment-type").html(response.employment_type + " job");
+        $(".overview-work-level").html(response.work_level);
+        $("#company-name").html(response.company_name);
+        $(".job-logos").html("<img src=\"img/" + response.logo +"\" width=\"100\" height=\"100\"/>");
+        $(".comp-location").html(response.location);
+        $(".app-number").html(response.no_of_applications + " applications");
     })
 })
 
