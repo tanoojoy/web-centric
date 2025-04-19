@@ -169,3 +169,20 @@ $(".type-container input").change(function(){
         }
     })
 });
+
+$(".search-button").click(function(response){
+    var job = $(".search-box").val();
+
+    var settings = {
+        "url": "backend/search_jobs.php",
+        "method": "POST",
+        "data": JSON.stringify(data),
+        "headers":{
+            "Content-Type": "application/json"
+        }
+    };
+
+    $.ajax(settings).done(function(response){
+        $
+    })
+})

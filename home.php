@@ -112,7 +112,8 @@
     <div class="wrapper">
       <div class="search-menu">
         <div class="search-bar">
-          <input type="text" class="search-box" placeholder="Search Jobs" autofocus/>
+          
+          <input type="text" class="search-box" name="search" placeholder="Search Jobs" autofocus/>
         </div>
         <div class="search-location">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
