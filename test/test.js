@@ -56,7 +56,7 @@ $(".job-overview-card").click(function(){
     };
 
     var settings = {
-        "url": "backend/get_one_job.php",
+        "url": "api/get_one_job.php",
         "method": "POST",
         "data": JSON.stringify(body),
         "headers": {

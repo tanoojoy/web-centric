@@ -45,7 +45,7 @@
 
         <!-- Main Feed -->
         <div class="main-feed">
-            <form action="backend/update_profile.php" method="POST">
+            <form action="api/update_profile.php" method="POST">
                 <div class="profile-pic-section">
                     <img src="img/capy.jpeg" alt="Profile Picture" class="profile-pic">
                 </div>

@@ -57,7 +57,7 @@
             <div class="Job-posting">
                     <h2>Job Posting</h2>
             </div>
-            <form action="backend/create_posting.php" method="POST" >
+            <form action="api/create_posting.php" method="POST" >
                 <div class="profile-info">
                     <label class="title" for="title"><strong>Job title:</strong></label>
                     <input type="text" name="title" id="title" required>

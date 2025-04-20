@@ -2,7 +2,7 @@
     $id = $_SESSION['user_id'];
 
     // echo $id;
-    include("connectDB.php");
+    include("../backend/connectDB.php");
     
     // Get form input
     $title = $_POST['title'];

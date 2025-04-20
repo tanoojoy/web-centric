@@ -32,7 +32,7 @@
     ?>
     <div class="main-feed">
         <div class="profile-container">
-            <form action="backend/update_profile.php" method="POST" enctype="multipart/form-data">
+            <form action="api/update_profile.php" method="POST" enctype="multipart/form-data">
                 <div class="profile-pic-section">
                     <img src="img/cat.webp" alt="Profile Picture" class="profile-pic">
                 </div>
