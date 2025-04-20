@@ -1,24 +1,35 @@
 <?php
-  include("connectDB.php");
-	if($_SERVER["REQUEST_METHOD"] == "POST"){
-    if(isset($_POST["email"]) && isset($_POST["password"])){
+  include("../backend/connectDB.php");
+  
+  if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (isset($_POST["email"]) && isset($_POST["password"])) {
       $email = $_POST["email"];
       $password = $_POST["password"];
-      $hashed_pass = password_hash($password, PASSWORD_BCRYPT);
-
-      $sql = "SELECT `user_id`, `username`, `role` FROM `users` WHERE `email`='$user' AND `password`='$hashed_pass'";
-      $response = $conn->query($sql);
-      $row = $response->fetch_assoc();
-
-      session_start();
-      $_SESSION['user_id'] = $row['user_id'];
-    //  $_SESSION['username'] = $row['username'];
+  
+      // Prepared statement to prevent SQL injection
+      $stmt = $conn->prepare("SELECT `user_id`, `username`, `password` FROM `users` WHERE `email`=? AND `role`='admin'");
+      $stmt->bind_param("s", $email);
+      $stmt->execute();
+      $result = $stmt->get_result();
       
-      // Redirect to homepage
-      header("Location: ../home.php");
-      exit();
+      if ($result->num_rows === 1) {
+        $row = $result->fetch_assoc();
+        // Verify the hashed password
+        if (password_verify($password, $row['password'])) {
+          session_start();
+          $_SESSION['user_id'] = $row['user_id'];
+          header("Location: home.php");
+          exit();
+        } else {
+          echo "Invalid email or password.";
+        }
+      } else {
+        echo "Invalid email or password.";
+      }
+  
+      $stmt->close();
     }
-  }
+  }  
 ?>
 <html>
 	<head>
