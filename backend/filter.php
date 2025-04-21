@@ -1,8 +1,6 @@
 <?php
-
-// use Opis\JsonSchema\Validator;
-
-// require 'vendor/autoload.php';
+require 'vendor/autoload.php';
+use Opis\JsonSchema\Validator;
 include "functions.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
