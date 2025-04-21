@@ -69,4 +69,6 @@
         get_footer();
     ?>
 </body>
+
+<script src="test/test.js"></script>
 </html>
