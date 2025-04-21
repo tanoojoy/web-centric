@@ -236,7 +236,7 @@ function get_skills(){
 }
 
 function get_user_profile($id){
-    $sql = "SELECT * FROM `users`";
+    $sql = "SELECT * FROM `users` WHERE `user_id`='$id'";
     
     $user = $GLOBALS['conn']->query($sql);
     $profile = [];

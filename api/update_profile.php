@@ -26,15 +26,14 @@
 
     $skills = json_encode($skills);
     
-    // echo json_encode($skills);
+    // echo json_encode($username);
 
     $sql = "UPDATE `users` 
             SET 
                 `username` = '$username', 
                 `first_name` = '$fname', 
                 `last_name` = '$lname', 
-                `email` = '$email',  
-                -- `profile_picture` = 'profile-pi.jpg', 
+                `email` = '$email',
                 `headline` = '$headline', 
                 `summary` = '$summary', 
                 `location` = '$location', 
@@ -48,6 +47,7 @@
             WHERE `user_id` = '$id';
             ";
     $result = $conn->query($sql);
+    echo $sql;
 
     $_SESSION['username'] = $username;
 
