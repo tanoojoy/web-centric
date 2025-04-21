@@ -189,7 +189,7 @@ function repopulate_jobs(response){
             overview_cards.append(job);
         })
 
-        var count = $("#result_count").val();
+        var count = response.main.length;
         $(".searched-show").html("Showing " + count + " results");
         add_click_events();
     }

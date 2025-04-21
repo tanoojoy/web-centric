@@ -50,18 +50,6 @@ function search_jobs($keyword = null, $location = null, $emp_type =  null, $expi
             array_push($reponse, $job);
         }
     } 
-    else {
-        if(isset($keyword)){
-            echo "There are no jobs that match '$keyword'";
-        }
-        else if(isset($id)){
-            echo "No job found with id '$id'";
-        }
-        else{
-            echo "There are no jobs available.";
-        }
-        
-    }
 
     return $reponse;
 }
