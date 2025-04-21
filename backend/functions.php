@@ -13,7 +13,7 @@ function search_jobs($keyword = null, $location = null, $emp_type =  null, $expi
     
     //only keyword argument, search jobs with keyword
     if(isset($keyword) && !(isset($location) && isset($emp_type) && isset($expiry_date))){
-        $sql = "SELECT jobposting.title, jobposting.description, jobposting.location, company.name AS company_name
+        $sql = "SELECT jobposting.job_id, jobposting.title, jobposting.description, jobposting.location, jobposting.employment_type, jobposting.work_level, jobposting.experience_needed, company.name AS company_name, company.logo
                 FROM jobposting
                 JOIN company ON jobposting.company_id = company.company_id
                 WHERE INSTR(jobposting.title, '" . $keyword . "') > 0 

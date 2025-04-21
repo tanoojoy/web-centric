@@ -50,6 +50,7 @@ function add_click_events(){
 
 add_click_events();
 
+//click on 1 job 
 $(".job-overview-card").click(function(){
     var body = {
         "job_id" : $(this).attr("id").split("_")[1]
@@ -79,6 +80,7 @@ $(".job-overview-card").click(function(){
     })
 })
 
+//changes in filters
 $(".type-container input").change(function(){
     if ($(this).is(":checked")) {
         if($(this).attr("id") == 'fulltime'){
@@ -144,45 +146,54 @@ $(".type-container input").change(function(){
     };
 
     $.ajax(settings).done(function(response){
-        response = JSON.parse(response);
-        var jobCards = $(".job-cards");
-        var overview_cards = $(".job-overview-cards");
-
-        jobCards.empty();
-        overview_cards.empty();
-
-        if(response.main.length > 0){
-            response.main.forEach(job => {
-                jobCards.append(job);
-            });
-
-            response.overview.forEach(job => {
-                overview_cards.append(job);
-            })
-
-            var count = $("#result_count").val();
-            $(".searched-show").html("Showing " + count + " results");
-            add_click_events();
-        }
-        else{
-            $(".searched-show").html("No results found");
-        }
+        repopulate_jobs(response);
     })
 });
 
-$(".search-button").click(function(response){
-    var job = $(".search-box").val();
+//search box press Enter OR press Find Job button
+$(".search-button, .search-box").on('click keypress', function(event){
+    if (event.type === 'click' || event.which === 13) {
+        var data ={
+            "job": $(".search-box").val()
+        } ;
 
-    var settings = {
-        "url": "backend/search_jobs.php",
-        "method": "POST",
-        "data": JSON.stringify(data),
-        "headers":{
-            "Content-Type": "application/json"
-        }
-    };
+        var settings = {
+            "url": "api/search_jobs.php",
+            "method": "POST",
+            "data": JSON.stringify(data),
+            "headers":{
+                "Content-Type": "application/json"
+            }
+        };
 
-    $.ajax(settings).done(function(response){
-        $
-    })
+        $.ajax(settings).done(function(response){
+            repopulate_jobs(response);
+        })
+    }
 })
+
+function repopulate_jobs(response){
+    response = JSON.parse(response);
+    var jobCards = $(".job-cards");
+    var overview_cards = $(".job-overview-cards");
+
+    jobCards.empty();
+    overview_cards.empty();
+
+    if(response.main.length > 0){
+        response.main.forEach(job => {
+            jobCards.append(job);
+        });
+
+        response.overview.forEach(job => {
+            overview_cards.append(job);
+        })
+
+        var count = $("#result_count").val();
+        $(".searched-show").html("Showing " + count + " results");
+        add_click_events();
+    }
+    else{
+        $(".searched-show").html("No results found");
+    }
+}

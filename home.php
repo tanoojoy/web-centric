@@ -112,7 +112,6 @@
     <div class="wrapper">
       <div class="search-menu">
         <div class="search-bar">
-          
           <input type="text" class="search-box" name="search" placeholder="Search Jobs" autofocus/>
         </div>
         <div class="search-location">
