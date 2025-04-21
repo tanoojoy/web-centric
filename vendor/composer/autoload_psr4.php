@@ -11,6 +11,9 @@ return array(
     'Symfony\\Polyfill\\Ctype\\' => array($vendorDir . '/symfony/polyfill-ctype'),
     'Stripe\\' => array($vendorDir . '/stripe/stripe-php/lib'),
     'PhpOption\\' => array($vendorDir . '/phpoption/phpoption/src/PhpOption'),
+    'Opis\\Uri\\' => array($vendorDir . '/opis/uri/src'),
+    'Opis\\String\\' => array($vendorDir . '/opis/string/src'),
+    'Opis\\JsonSchema\\' => array($vendorDir . '/opis/json-schema/src'),
     'GrahamCampbell\\ResultType\\' => array($vendorDir . '/graham-campbell/result-type/src'),
     'Dotenv\\' => array($vendorDir . '/vlucas/phpdotenv/src'),
 );

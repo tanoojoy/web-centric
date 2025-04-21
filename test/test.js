@@ -7,7 +7,10 @@ const header = document.querySelector(".header");
 var filter = {
         "employment_type":[],
         "work_level":[],
-        "salary_range":[]
+        "salary_range":{
+            "minSalary": 15000,
+            "maxSalary": 30000
+        }
     };
 
 wrapper.addEventListener("scroll", (e) => {
@@ -136,18 +139,23 @@ $(".type-container input").change(function(){
         }
     }
 
+    console.log(JSON.stringify(filter));
     var settings = {
         "url": "backend/filter.php",
         "method": "POST",
         "data": JSON.stringify(filter),
         "headers": {
             "Content-Type": "application/json"
+        },
+        success: function(response){
+            repopulate_jobs(response);
+        },
+        error: function(error){
+            console.log(error)
         }
     };
 
-    $.ajax(settings).done(function(response){
-        repopulate_jobs(response);
-    })
+    $.ajax(settings);
 });
 
 //search box press Enter OR press Find Job button
@@ -163,12 +171,16 @@ $(".search-button, .search-box").on('click keypress', function(event){
             "data": JSON.stringify(data),
             "headers":{
                 "Content-Type": "application/json"
+            },
+            success: function(response){
+                repopulate_jobs(response);
+            },
+            error: function(error){
+                console.log(error)
             }
         };
 
-        $.ajax(settings).done(function(response){
-            repopulate_jobs(response);
-        })
+        $.ajax(settings);
     }
 })
 

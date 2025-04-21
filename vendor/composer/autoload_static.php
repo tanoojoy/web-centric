@@ -24,6 +24,12 @@ class ComposerStaticInit40aa654f2e66c20881ae0572fe987a10
         array (
             'PhpOption\\' => 10,
         ),
+        'O' => 
+        array (
+            'Opis\\Uri\\' => 9,
+            'Opis\\String\\' => 12,
+            'Opis\\JsonSchema\\' => 16,
+        ),
         'G' => 
         array (
             'GrahamCampbell\\ResultType\\' => 26,
@@ -54,6 +60,18 @@ class ComposerStaticInit40aa654f2e66c20881ae0572fe987a10
         'PhpOption\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpoption/phpoption/src/PhpOption',
+        ),
+        'Opis\\Uri\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/opis/uri/src',
+        ),
+        'Opis\\String\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/opis/string/src',
+        ),
+        'Opis\\JsonSchema\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/opis/json-schema/src',
         ),
         'GrahamCampbell\\ResultType\\' => 
         array (

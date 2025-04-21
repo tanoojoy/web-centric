@@ -1,0 +1,56 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "JobFilterSchema",
+    "type": "object",
+    "properties": {
+        "employment_type": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "enum": [
+                    "Full Time",
+                    "Part Time",
+                    "Internship"
+                ]
+            },
+            "uniqueItems": true
+        },
+        "work_level": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "enum": [
+                    "Student Level",
+                    "Senior Level",
+                    "Entry Level",
+                    "Mid Level"
+                ]
+            },
+            "uniqueItems": true
+        },
+        "salary_range": {
+            "type": "object",
+            "properties": {
+                "minSalary": {
+                    "type": "integer",
+                    "minimum": 15000,
+                    "maximum": 30000
+                },
+                "maxSalary": {
+                    "type": "integer",
+                    "minimum": 15000,
+                    "maximum": 30000
+                }
+            },
+            "required": [
+                "minSalary",
+                "maxSalary"
+            ]
+        }
+    },
+    "required": [
+        "employment_type",
+        "work_level",
+        "salary_range"
+    ]
+}
