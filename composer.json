@@ -1,6 +1,7 @@
 {
     "require": {
         "stripe/stripe-php": "^16.1",
-        "vlucas/phpdotenv": "^5.6"
+        "vlucas/phpdotenv": "^5.6",
+        "opis/json-schema": "^2.4"
     }
 }
