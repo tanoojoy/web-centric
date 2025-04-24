@@ -270,7 +270,7 @@ nav .links  a {
     border-radius: 7px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    overflow-y: auto;
+    
     height: calc(100vh - 100px); 
     margin-top: 20px;
     
@@ -452,4 +452,116 @@ nav .links  a {
 
 .submit-btn:hover {
     background-color:  #101015;
+}
+
+
+
+/*darkmode*/
+
+body.dark-mode {
+    background-color: #1a1a1a;
+    color: #ffffff;
+}
+
+body.dark-mode .header {
+    background-color: #2d2d2d;
+    border-bottom: 1px solid #444;
+}
+
+body.dark-mode .main-feed {
+    background-color: #121212;
+}
+
+body.dark-mode .job-post,
+body.dark-mode .mycard {
+    background-color: #2d2d2d;
+    color: #ffffff;
+    border: 1px solid #444;
+}
+
+body.dark-mode .header-menu a {
+    color: #ccc;
+}
+
+body.dark-mode .header-menu a:hover {
+    color: #fff;
+}
+
+body.dark-mode .user-name {
+    color: #fff;
+}
+
+body.dark-mode .sidebar {
+    background-color: #2d2d2d;
+    border-right: 1px solid #444;
+}
+
+body.dark-mode .sidebar-menu a {
+    color: #ccc;
+}
+
+body.dark-mode .sidebar-menu a:hover {
+    background-color: #444;
+}
+
+.dark-light {
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.dark-light:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .dark-light svg {
+    stroke: #fff;
+    fill: none;
+}
+
+body.dark-mode .container {
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+body.dark-mode .main-feed {
+    background-color: #121212;
+}
+
+body.dark-mode .job-post,
+body.dark-mode .mycard {
+    background-color: #2d2d2d;
+    color: #ffffff;
+    border: 1px solid #444;
+}
+
+/* Add these container-specific dark mode styles */
+body.dark-mode .container {
+    background-color: #1e1e1e;
+    border-color: #444; /* If container has any borders */
+}
+
+body.dark-mode .grid {
+    background-color:  #121212;
+}
+
+body.dark-mode .mycard {
+    background-color: #2d2d2d;
+    border: 1px solid #444;
+}
+
+body.dark-mode .mycard h2,
+body.dark-mode .mycard h4,
+body.dark-mode .mycard li {
+    color: #ffffff;
+}
+
+body.dark-mode .submit-btn {
+    background-color: #0473ff;
+    color: #ffffff;
+}
+
+body.dark-mode .submit-btn:hover {
+    background-color: #035cca;
 }
