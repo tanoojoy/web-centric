@@ -140,13 +140,12 @@ function filter_jobs($filter){
     // Filter by salary range
     if (!empty($filter['salary_range'])) {
         $salaryConditions = [];
-        foreach ($filter['salary_range'] as $range) {
-            if (is_array($range) && count($range) === 2) {
-                $min = (int) $range[0];
-                $max = (int) $range[1];
-                $salaryConditions[] = "(jobposting.salary BETWEEN $min AND $max)";
-            }
-        }
+    
+        $min = $filter['salary_range']['minSalary'];
+        $max = $filter['salary_range']['maxSalary'];
+        $salaryConditions[] = "(jobposting.salary BETWEEN $min AND $max)";
+            
+        
         if (!empty($salaryConditions)) {
             $conditions[] = "(" . implode(" OR ", $salaryConditions) . ")";
         }

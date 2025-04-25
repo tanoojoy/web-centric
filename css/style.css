@@ -464,7 +464,7 @@ body.dark-mode {
 }
 
 body.dark-mode .header {
-    background-color: #2d2d2d;
+    background-color: #1c1c24;
     border-bottom: 1px solid #444;
 }
 
@@ -492,16 +492,16 @@ body.dark-mode .user-name {
 }
 
 body.dark-mode .sidebar {
-    background-color: #2d2d2d;
+    background-color: #121212;
     border-right: 1px solid #444;
 }
 
 body.dark-mode .sidebar-menu a {
-    color: #ccc;
+    color: white;
 }
 
 body.dark-mode .sidebar-menu a:hover {
-    background-color: #444;
+    background-color: #121212;
 }
 
 .dark-light {
@@ -547,7 +547,7 @@ body.dark-mode .grid {
 }
 
 body.dark-mode .mycard {
-    background-color: #2d2d2d;
+    background-color: #121212;
     border: 1px solid #444;
 }
 

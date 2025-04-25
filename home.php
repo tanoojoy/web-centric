@@ -29,6 +29,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $title; ?></title>
     <link rel="stylesheet" href="test/text.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/chat.css">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         .main-feed {
@@ -195,44 +198,17 @@
               </div>
             </div>
           </div>
-          <div class="job-time">
-            <div class="job-time-title">Salary Range</div>
-            <div class="job-wrapper">
-              <div class="type-container">
-                <input type="checkbox" id="job1" class="job-style">
-                <label for="job1">Rs15000 - Rs18000</label>
-                <span class="job-number"><?php echo salary_range_count(15000, 18000); ?></span>
-              </div>
-              <div class="type-container">
-                <input type="checkbox" id="job2" class="job-style">
-                <label for="job2">Rs18001 - Rs20000</label>
-                <span class="job-number"><?php echo salary_range_count(18001, 20000); ?></span>
-              </div>
-              <div class="type-container">
-                <input type="checkbox" id="job3" class="job-style">
-                <label for="job3">Rs20001 - Rs22000</label>
-                <span class="job-number"><?php echo salary_range_count(20001, 22000); ?></span>
-              </div>
-              <div class="type-container">
-                <input type="checkbox" id="job4" class="job-style">
-                <label for="job4">Rs22001 - Rs24000</label>
-                <span class="job-number"><?php echo salary_range_count(22001, 24000); ?></span>
-              </div>
-              <div class="type-container">
-                <input type="checkbox" id="job5" class="job-style">
-                <label for="job5">Rs24001 - Rs26000</label>
-                <span class="job-number"><?php echo salary_range_count(24001, 26000); ?></span>
-              </div>
-              <div class="type-container">
-                <input type="checkbox" id="job6" class="job-style">
-                <label for="job6">Rs26001 - Rs28000</label>
-                <span class="job-number"><?php echo salary_range_count(26001, 28000); ?></span>
-              </div>
-              <div class="type-container">
-                <input type="checkbox" id="job6" class="job-style">
-                <label for="job6">Rs28001 - Rs30000</label>
-                <span class="job-number"><?php echo salary_range_count(28001, 30000); ?></span>
-              </div>
+          <div class="salary-range-container">
+            <div class="range-values">
+              <span id="rangeMin">Rs15000</span>
+              <span id="rangeMax">Rs30000</span>
+            </div>
+
+            <div class="slider-container">
+              <div class="slider-track"></div>
+              <div class="slider-range" id="sliderRange"></div>
+              <input type="range" id="minSlider" min="15000" max="30000" step="10" value="15000">
+              <input type="range" id="maxSlider" min="15000" max="30000" step="10" value="30000">
             </div>
           </div>
         </div>
@@ -368,5 +344,153 @@
       </div>
     </div>
   </div>
+  <div id="live-chat">
+		
+		<header class="clearfix">
+			
+			<a href="#" class="chat-close">x</a>
+
+			<h4>Mehmet Mert</h4>
+
+			<span class="chat-message-counter">3</span>
+
+		</header>
+
+		<div class="chat">
+			
+			<div class="chat-history">
+				
+				<div class="chat-message clearfix">
+					
+					<img src="http://lorempixum.com/32/32/people" alt="" width="32" height="32">
+
+					<div class="chat-message-content clearfix">
+						
+						<span class="chat-time">13:35</span>
+
+						<h5>John Doe</h5>
+
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, explicabo quasi ratione odio dolorum harum.</p>
+
+					</div> <!-- end chat-message-content -->
+
+				</div> <!-- end chat-message -->
+
+				<hr>
+
+				<div class="chat-message clearfix">
+					
+					<img src="http://gravatar.com/avatar/2c0ad52fc5943b78d6abe069cc08f320?s=32" alt="" width="32" height="32">
+
+					<div class="chat-message-content clearfix">
+						
+						<span class="chat-time">13:37</span>
+
+						<h5>Marco Biedermann</h5>
+
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, nulla accusamus magni vel debitis numquam qui tempora rem voluptatem delectus!</p>
+
+					</div> <!-- end chat-message-content -->
+
+				</div> <!-- end chat-message -->
+
+				<hr>
+
+				<div class="chat-message clearfix">
+					
+					<img src="http://lorempixum.com/32/32/people" alt="" width="32" height="32">
+
+					<div class="chat-message-content clearfix">
+						
+						<span class="chat-time">13:38</span>
+
+						<h5>John Doe</h5>
+
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+
+					</div> <!-- end chat-message-content -->
+
+				</div> <!-- end chat-message -->
+
+				<hr>
+
+			</div> <!-- end chat-history -->
+
+			<p class="chat-feedback">Yazıyor..</p>
+
+			<form action="#" method="post">
+
+				<fieldset>
+					
+					<input type="text" placeholder="Mesajınızı Yazın" autofocus>
+					<input type="hidden">
+
+				</fieldset>
+
+			</form>
+
+		</div> <!-- end chat -->
+
+	</div> <!-- end live-chat -->
+  <div class="floating-icon">
+    <i class="fas fa-comment-dots"></i> <!-- Chat icon -->
+  </div>
 </body>
 <script src="test/test.js"></script>
+<script>
+  $(".chat").hide();
+  (function() {
+
+$('#live-chat header').on('click', function() {
+
+  $('.chat').slideToggle(300, 'swing');
+  $('.chat-message-counter').fadeToggle(300, 'swing');
+
+});
+
+$('.chat-close').on('click', function(e) {
+
+  e.preventDefault();
+  $('#live-chat').fadeOut(300);
+
+});
+
+}) ();
+
+$(".floating-icon").click(function(){
+  $(".chat").toggle();
+})
+
+const minSlider = document.getElementById('minSlider');
+  const maxSlider = document.getElementById('maxSlider');
+  const rangeMin = document.getElementById('rangeMin');
+  const rangeMax = document.getElementById('rangeMax');
+  const sliderRange = document.getElementById('sliderRange');
+
+  function updateSlider() {
+    const min = parseInt(minSlider.value);
+    const max = parseInt(maxSlider.value);
+
+    if (min > max - 1000) {
+      minSlider.value = max - 1000;
+    }
+
+    if (max < min + 1000) {
+      maxSlider.value = min + 1000;
+    }
+
+    rangeMin.textContent = `Rs${minSlider.value}`;
+    rangeMax.textContent = `Rs${maxSlider.value}`;
+
+    const percent1 = ((minSlider.value - 15000) / (30000 - 15000)) * 100;
+    const percent2 = ((maxSlider.value - 15000) / (30000 - 15000)) * 100;
+
+    sliderRange.style.left = percent1 + '%';
+    sliderRange.style.width = (percent2 - percent1) + '%';
+  }
+
+  minSlider.addEventListener('input', updateSlider);
+  maxSlider.addEventListener('input', updateSlider);
+
+  updateSlider();
+</script>

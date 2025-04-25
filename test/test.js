@@ -96,7 +96,7 @@ $(document).ready(function() {
     };
 
     //changes in filters
-    $(".type-container input").change(function(){
+    $(".type-container input, #minSlider, #maxSlider").change(function(){
         if ($(this).is(":checked")) {
             const id = $(this).attr("id");
         
@@ -120,8 +120,13 @@ $(document).ready(function() {
                 }
             }
         }
+
+        let min = $('#minSlider').val();
+        let max = $('#maxSlider').val();
+        if (parseInt(min) >= parseInt(max)) return;
+        sendSalaryRange(min, max);
         
-        // console.log(JSON.stringify(filter));
+        console.log(JSON.stringify(filter));
         var settings = {
             "url": "backend/filter.php",
             "method": "POST",
@@ -131,6 +136,7 @@ $(document).ready(function() {
             },
             success: function(response){
                 repopulate_jobs(response);
+                // console.log(response);
             },
             error: function(error){
                 console.log(error)
@@ -190,5 +196,10 @@ $(document).ready(function() {
         else{
             $(".searched-show").html("No results found");
         }
+    }
+
+    function sendSalaryRange(min, max) {
+        filter.salary_range.maxSalary = parseInt(max);
+        filter.salary_range.minSalary = parseInt(min);
     }
 });
