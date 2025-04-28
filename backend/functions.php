@@ -336,5 +336,29 @@ function get_footer(){
             </div>
         </footer>';
 }
-        
+    
+
+function get_userlist($conn, $username){
+    $sql = "SELECT username FROM users WHERE username != ?";
+    $stmt = $conn->prepare($sql);
+    if (!$stmt) {
+        die("Prepare failed: " . $conn->error);
+    }
+    $stmt->bind_param("s", $username);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    
+    $output = '';
+
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $user = htmlspecialchars($row['username']);
+            $displayName = ucfirst($user);
+            $output .= "<option value='$user'>$displayName</option>\n";
+        }
+    }
+    $stmt->close();
+    
+    return $output;
+}
 

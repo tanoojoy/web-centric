@@ -54,17 +54,17 @@
 
 .basic,
 .basic .title .fa {
-  background: linear-gradient(-45deg, #f403d1, #64b5f6);
+  background: linear-gradient(-45deg,#076dbb, #4980ad);
 }
 
 .standard,
 .standard .title .fa{
-  background: linear-gradient(-45deg, #ffec61, #f321d7);
+  background: linear-gradient(-45deg,#076dbb, #4980ad);
 }
 
 .premium,
 .premium .title .fa {
-  background: linear-gradient(-45deg, #24ff72, #9a4eff);
+  background: linear-gradient(-45deg, #076dbb, #4980ad);
 }
 
 .mycard::before {

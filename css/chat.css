@@ -129,3 +129,115 @@
   .floating-icon:hover {
     background-color: #0056b3;
   }
+/*.......*/
+  .user-list {
+    background: #fff;
+    border-left: 1px solid #e0e0e0;
+    border-right: 1px solid #e0e0e0;
+}
+
+.user-list h2 {
+    background: #293239;
+    color: #fff;
+    font-size: 12px;
+    padding: 12px 24px;
+    margin: 0;
+    border-bottom: 1px solid #1b2126;
+}
+
+.user-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.user-list li {
+    padding: 12px 24px;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.2s;
+}
+
+.user-list li:last-child {
+    border-bottom: none;
+}
+
+.user-list li:hover {
+    background-color: #f8f8f8;
+    cursor: pointer;
+}
+
+.user-list a {
+    color: #2c2c2c;
+    text-decoration: none;
+    font-size: 12px;
+    display: block;
+}
+
+.user-list a:hover {
+    color: #1a8a34;
+}
+
+/* Scrollbar styling to match chat history */
+.user-list ul::-webkit-scrollbar {
+    width: 6px;
+}
+
+.user-list ul::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.user-list ul::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 3px;
+}
+
+.user-list ul::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/*.......*/
+
+
+.chat-message.right {
+    text-align: right;
+    margin-left: 20%;
+}
+
+.chat-message.left {
+    text-align: left;
+    margin-right: 20%;
+}
+
+.message-content {
+    display: inline-block;
+    background: #f1f0f0;
+    padding: 8px 15px;
+    border-radius: 15px;
+    margin: 5px 0;
+}
+
+.chat-message.right .message-content {
+    background: #007bff;
+    color: white;
+}
+
+.user-search {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+#user-search {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+.username {
+    color: #666;
+    font-size: 0.9em;
+    margin-left: 8px;
+}
