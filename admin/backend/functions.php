@@ -250,6 +250,10 @@ function get_user_profile($id){
     return $profile;
 }
 
+function get_all_users(){
+
+}
+
 function get_header(){
     echo "<!-- Navigation Bar -->
             <header>

@@ -486,12 +486,12 @@ $('#user-search').on('input', function() {
         data: { search: searchTerm },
         success: function(response) {
             $('#user-list').html(response);
-            // Re-attach click handler for new items
+            
             $('#user-list li').click(function() {
                 currentReceiver = $(this).data('userid');
                 $('#receiver-id').val(currentReceiver);
                 loadMessages();
-                // Clear existing interval and set new one
+                
                 clearInterval(messageInterval);
                 messageInterval = setInterval(loadMessages, 2000);
             });

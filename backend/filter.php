@@ -23,10 +23,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // echo "hi";
         echo filter_jobs($data);
     } else {
-        foreach ($result->getErrors() as $error) {
-            echo "Error at: " . $error->dataPointer() . "\n";
-            echo "Message: " . $error->keyword() . " - " . $error->keywordArgs()['message'] ?? 'Validation error' . "\n\n";
+        $errorFormatter = new ErrorFormatter();
+        $errors = $errorFormatter->format($result->error());
+    
+        $error_messages = [];
+        foreach ($errors as $key => $message) {
+            array_push($error_messages, "Error at '$key': $message");
         }
+    
+        echo json_encode([
+            "errors" => $error_messages
+        ]);
+        
     }
 }
 ?>

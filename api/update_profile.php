@@ -52,7 +52,9 @@
     $_SESSION['username'] = $username;
 
     $conn->close();
-
+    echo json_encode([
+        "Message" => "User ". $username ." Updated",
+    ]);
     header("Location: ../home.php");
     exit();
 
