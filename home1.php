@@ -239,7 +239,7 @@
                             </div>
                         </div>";
                 }
-                
+                $conn->close();
             ?>
           </div>
           <div class="job-overview">
@@ -344,68 +344,97 @@
       </div>
     </div>
   </div>
-  <!-- Modify the existing #live-chat section in home.php -->
-<div id="live-chat">
-    <header class="clearfix">
-        <h4>Chat <i class="fas fa-comments"></i></h4>
-        <span class="chat-message-counter" id="unread-count">0</span>
-    </header>
-    
-    <div class="chat">
-    <div class="user-list">
-        <h2>Contacts</h2>
-        <div class="user-search">
-            <input type="text" id="user-search" placeholder="Search users...">
-        </div>
-        <ul id="user-list">
-                <?php
-                    $current_user_id = $_SESSION['user_id'];
-                    $search_term = isset($_GET['search']) ? $_GET['search'] : '';
-                    $sql = "SELECT user_id, first_name, last_name, username 
-                            FROM users 
-                            WHERE user_id != '$current_user_id' 
-                            AND (username LIKE '%$search_term%' 
-                                OR first_name LIKE '%$search_term%' 
-                                OR last_name LIKE '%$search_term%')";
-                    $result = $conn->query($sql);
-                    while($user = $result->fetch_assoc()) {
-                        echo '<li data-userid="'.$user['user_id'].'">'.
-                            $user['first_name'].' '.$user['last_name'].
-                            '<span class="username">@'.$user['username'].'</span></li>';
-                    }
-                ?>
-        </ul>
-    </div>
-        
-        <!-- Chat History -->
-        <div class="chat-history" id="chat-messages"></div>
-        
-        <!-- Message Input -->
-        <form id="chat-form">
-            <fieldset>
-                <input type="text" id="message-input" placeholder="Type your message..." autofocus>
-                <input type="hidden" id="receiver-id">
-                <button type="submit" class="hidden"></button>
-            </fieldset>
-        </form>
-    </div>
-</div>
+  <div id="live-chat">
+		
+		<header class="clearfix">
+			
+	
+			<h4><?php echo $user['first_name'] . " " . $user['last_name'] ?></h4>
 
+			<span class="chat-message-counter">3</span>
+
+		</header>
+
+		<div class="chat">
+			
+			<div class="chat-history">
+				
+				<div class="chat-message clearfix">
+					
+					<img src="http://lorempixum.com/32/32/people" alt="" width="32" height="32">
+
+					<div class="chat-message-content clearfix">
+						
+						<span class="chat-time">13:35</span>
+
+						<h5>John Doe</h5>
+
+						<p>Hello</p>
+
+					</div> <!-- end chat-message-content -->
+
+				</div> <!-- end chat-message -->
+
+				<hr>
+
+				<div class="chat-message clearfix">
+					
+					<img src="http://gravatar.com/avatar/2c0ad52fc5943b78d6abe069cc08f320?s=32" alt="" width="32" height="32">
+
+					<div class="chat-message-content clearfix">
+						
+						<span class="chat-time">13:37</span>
+
+						<h5>Marco Biedermann</h5>
+
+						<p>Hello</p>
+
+					</div> <!-- end chat-message-content -->
+
+				</div> <!-- end chat-message -->
+
+				<hr>
+
+				<div class="chat-message clearfix">
+					
+					<img src="http://lorempixum.com/32/32/people" alt="" width="32" height="32">
+
+					<div class="chat-message-content clearfix">
+						
+						<span class="chat-time">13:38</span>
+
+						<h5>John Doe</h5>
+
+						<p>How are you?</p>
+
+					</div> <!-- end chat-message-content -->
+
+				</div> <!-- end chat-message -->
+
+				<hr>
+
+			</div> <!-- end chat-history -->
+
+
+			<form action="#" method="post">
+
+				<fieldset>
+					
+					<input type="text" placeholder="Message" autofocus>
+					<input type="hidden">
+
+				</fieldset>
+
+			</form>
+
+		</div> <!-- end chat -->
+
+	</div> <!-- end live-chat -->
   <div class="floating-icon">
     <i class="fas fa-comment-dots"></i> <!-- Chat icon -->
   </div>
-
-  <?php
-    // Close connection AFTER all database operations
-    $conn->close();
-?>
-
 </body>
-
-
 <script src="test/test.js"></script>
-
-
 <script>
   $(".chat").hide();
   (function() {
@@ -425,84 +454,6 @@ $('.chat-close').on('click', function(e) {
 });
 
 }) ();
-
-// Initialize chat
-let currentReceiver = null;
-
-// Load messages when user is selected
-$('#user-list li').click(function() {
-    currentReceiver = $(this).data('userid');
-    $('#receiver-id').val(currentReceiver);
-    loadMessages();
-    setInterval(loadMessages, 2000); // Refresh every 2 seconds
-});
-
-// Load messages from server
-function loadMessages() {
-    if (!currentReceiver) return;
-    
-    $.post('backend/get_messages.php', { receiver_id: currentReceiver }, function(data) {
-        $('#chat-messages').empty();
-        data.forEach(msg => {
-            const isSender = msg.sender === '<?php echo $_SESSION['user_id']; ?>';
-            const alignClass = isSender ? 'right' : 'left';
-            const time = new Date(msg.created_at).toLocaleTimeString([], { 
-                hour: '2-digit', 
-                minute: '2-digit' 
-            });
-            
-            $('#chat-messages').append(`
-                <div class="chat-message ${alignClass}">
-                    <div class="message-content">
-                        <p>${msg.message}</p>
-                        <span class="chat-time">${time}</span>
-                    </div>
-                </div>
-            `);
-        });
-        $('#chat-messages').scrollTop($('#chat-messages')[0].scrollHeight);
-    }, 'json');
-}
-
-// Send message
-$('#chat-form').submit(function(e) {
-    e.preventDefault();
-    const message = $('#message-input').val().trim();
-    if (!message || !currentReceiver) return;
-
-    $.post('backend/send_message.php', {
-        receiver_id: currentReceiver,
-        message: message
-    }, function(response) {
-        $('#message-input').val('');
-        loadMessages();
-    });
-});
-
-$('#user-search').on('input', function() {
-    const searchTerm = $(this).val();
-    
-    $.ajax({
-        url: 'backend/search_users.php',
-        method: 'POST',
-        data: { search: searchTerm },
-        success: function(response) {
-            $('#user-list').html(response);
-            // Re-attach click handler for new items
-            $('#user-list li').click(function() {
-                currentReceiver = $(this).data('userid');
-                $('#receiver-id').val(currentReceiver);
-                loadMessages();
-                // Clear existing interval and set new one
-                clearInterval(messageInterval);
-                messageInterval = setInterval(loadMessages, 2000);
-            });
-        }
-    });
-});
-
-// Initialize message interval variable
-let messageInterval;
 
 $(".floating-icon").click(function(){
   $(".chat").toggle();

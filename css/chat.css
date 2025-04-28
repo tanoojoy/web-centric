@@ -83,11 +83,15 @@
 	height: 252px;
 	padding: 8px 24px;
 	overflow-y: scroll;
+    overflow-x:hidden;
 }
 
 .chat-message {
-	margin: 16px 0;
+    margin: 16px 0;
+    width: 100%;
+    clear: both;
 }
+
 
 .chat-message img {
 	border-radius: 50%;
@@ -99,8 +103,10 @@
 }
 
 .chat-time {
-	float: right;
-	font-size: 10px;
+    display: block;
+    font-size: 0.75em;
+    opacity: 0.8;
+    margin-top: 4px;
 }
 
 .chat-feedback {
@@ -137,8 +143,8 @@
 }
 
 .user-list h2 {
-    background: #293239;
-    color: #fff;
+    background: #fff;
+    color:#1b2126;
     font-size: 12px;
     padding: 12px 24px;
     margin: 0;
@@ -201,26 +207,29 @@
 
 
 .chat-message.right {
-    text-align: right;
-    margin-left: 20%;
+    float: right;
+    clear: both;
+    margin-right: 10px;
 }
 
 .chat-message.left {
-    text-align: left;
-    margin-right: 20%;
+    float: left;
+    clear: both;
+    margin-left: 10px;
 }
 
 .message-content {
-    display: inline-block;
-    background: #f1f0f0;
-    padding: 8px 15px;
+    max-width: 70%;
+    padding: 10px 15px;
     border-radius: 15px;
-    margin: 5px 0;
+    position: relative;
+    word-wrap: break-word;
 }
 
 .chat-message.right .message-content {
     background: #007bff;
     color: white;
+    float: right;
 }
 
 .user-search {
@@ -240,4 +249,9 @@
     color: #666;
     font-size: 0.9em;
     margin-left: 8px;
+}
+
+.chat-message.left .message-content {
+    background: #f1f0f0;
+    float: left;
 }
