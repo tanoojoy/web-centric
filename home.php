@@ -391,7 +391,7 @@
     </div>
 </div>
 
-  
+ 
 
   <?php
     // Close connection AFTER all database operations
